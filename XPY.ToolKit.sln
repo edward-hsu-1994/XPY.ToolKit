@@ -9,7 +9,9 @@ Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "Solution Items", "Solution 
 		README.md = README.md
 	EndProjectSection
 EndProject
-Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "XPY.ToolKit.Utilities", "XPY.ToolKit.Utilities\XPY.ToolKit.Utilities.csproj", "{AB2D6737-6EEF-4685-9E3B-4FF80CBAE91E}"
+Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "XPY.ToolKit.Utilities", "XPY.ToolKit.Utilities\XPY.ToolKit.Utilities.csproj", "{AB2D6737-6EEF-4685-9E3B-4FF80CBAE91E}"
+EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "XPY.ToolKit.Utilities.Test", "XPY.ToolKit.Utilities.Test\XPY.ToolKit.Utilities.Test.csproj", "{51F148DA-CA7A-40B7-B31B-A330A8BC675E}"
 EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution
@@ -21,6 +23,10 @@ Global
 		{AB2D6737-6EEF-4685-9E3B-4FF80CBAE91E}.Debug|Any CPU.Build.0 = Debug|Any CPU
 		{AB2D6737-6EEF-4685-9E3B-4FF80CBAE91E}.Release|Any CPU.ActiveCfg = Release|Any CPU
 		{AB2D6737-6EEF-4685-9E3B-4FF80CBAE91E}.Release|Any CPU.Build.0 = Release|Any CPU
+		{51F148DA-CA7A-40B7-B31B-A330A8BC675E}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{51F148DA-CA7A-40B7-B31B-A330A8BC675E}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{51F148DA-CA7A-40B7-B31B-A330A8BC675E}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{51F148DA-CA7A-40B7-B31B-A330A8BC675E}.Release|Any CPU.Build.0 = Release|Any CPU
 	EndGlobalSection
 	GlobalSection(SolutionProperties) = preSolution
 		HideSolutionNode = FALSE
