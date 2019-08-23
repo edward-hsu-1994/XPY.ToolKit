@@ -16,4 +16,8 @@
     <ProjectReference Include="..\XPY.ToolKit.Utilities\XPY.ToolKit.Utilities.csproj" />
   </ItemGroup>
 
+  <ItemGroup>
+    <Folder Include="Helpers\" />
+  </ItemGroup>
+
 </Project>

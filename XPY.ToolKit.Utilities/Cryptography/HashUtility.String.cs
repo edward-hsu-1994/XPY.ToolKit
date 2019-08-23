@@ -3,6 +3,7 @@ using System.Collections.Generic;
 using System.Linq;
 using System.Security.Cryptography;
 using System.Text;
+using XPY.ToolKit.Utilities.Common;
 
 namespace XPY.ToolKit.Utilities.Cryptography {
     /// <summary>
@@ -31,7 +32,7 @@ namespace XPY.ToolKit.Utilities.Cryptography {
         /// <param name="upper">是否轉換為大寫</param>
         /// <returns>雜湊字串</returns>
         public static string ToHashString<Algorithm>(string str, bool upper = true) where Algorithm : HashAlgorithm {
-            return string.Join("", ToHash<Algorithm>(str).Select(x => x.ToString(upper ? "X2" : "x2")));
+            return string.Join("", BytesUtility.ToHex(ToHash<Algorithm>(str), upper));
         }
     }
 }

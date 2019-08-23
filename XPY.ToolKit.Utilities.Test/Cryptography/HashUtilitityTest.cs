@@ -3,7 +3,7 @@ using System.Collections.Generic;
 using System.IO;
 using System.Security.Cryptography;
 using System.Text;
-using XPY.ToolKit.Utilities.Test.Helpers;
+using XPY.ToolKit.Utilities.Common;
 using Xunit;
 
 namespace XPY.ToolKit.Utilities.Cryptography.Test {
@@ -23,7 +23,7 @@ namespace XPY.ToolKit.Utilities.Cryptography.Test {
         [InlineData("0000", "4a7d1ed414474e4033ac29ccb8653d9b")]
         [InlineData("admin", "21232f297a57a5a743894a0e4a801fc3")]
         public void StringToHash(string origin, string hashResult) {
-            Assert.Equal(ByteConvert.HexToBytes(hashResult), HashUtility.ToHash<MD5>(origin));
+            Assert.Equal(BytesUtility.FromHex(hashResult), HashUtility.ToHash<MD5>(origin));
         }
 
         [Theory(DisplayName = "Stream轉雜湊字串測試")]
@@ -44,7 +44,7 @@ namespace XPY.ToolKit.Utilities.Cryptography.Test {
         [InlineData("admin", "21232f297a57a5a743894a0e4a801fc3")]
         public void StreamToHash(string origin, string hashResult) {
             using (var stream = new MemoryStream(Encoding.UTF8.GetBytes(origin))) {
-                Assert.Equal(ByteConvert.HexToBytes(hashResult), HashUtility.ToHash<MD5>(stream));
+                Assert.Equal(BytesUtility.FromHex(hashResult), HashUtility.ToHash<MD5>(stream));
             }
         }
 
@@ -65,7 +65,7 @@ namespace XPY.ToolKit.Utilities.Cryptography.Test {
         [InlineData("admin", "21232f297a57a5a743894a0e4a801fc3")]
         public void ByteArrayToHash(string origin, string hashResult) {
             var bytes = Encoding.UTF8.GetBytes(origin);
-            Assert.Equal(ByteConvert.HexToBytes(hashResult), HashUtility.ToHash<MD5>(bytes));
+            Assert.Equal(BytesUtility.FromHex(hashResult), HashUtility.ToHash<MD5>(bytes));
         }
     }
 }

@@ -14,7 +14,7 @@ namespace XPY.ToolKit.Utilities.Common {
         /// <param name="binary">Binary Data</param>
         /// <returns>16進位表示</returns>
         public static string ToHex(byte[] binary, bool upper = false) {
-            return string.Join("", binary.Select(x => x.ToString(upper ? "x2" : "X2")));
+            return string.Join("", binary.Select(x => x.ToString(upper ? "X2" : "x2")));
         }
 
         /// <summary>
