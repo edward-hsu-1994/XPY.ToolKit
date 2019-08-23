@@ -14,7 +14,7 @@ namespace XPY.ToolKit.Utilities.Cryptography {
         /// <param name="binary">Byte陣列</param>
         /// <returns>雜湊Binary</returns>
         public static byte[] ToHash<Algorithm>(this byte[] binary) where Algorithm : HashAlgorithm {
-            return HashExtension.ToHash<Algorithm>(binary);
+            return HashUtility.ToHash<Algorithm>(binary);
         }
 
         /// <summary>
@@ -24,8 +24,8 @@ namespace XPY.ToolKit.Utilities.Cryptography {
         /// <param name="binary">Byte陣列</param>
         /// <param name="upper">是否轉換為大寫</param>
         /// <returns>雜湊字串</returns>
-        public static string ToHashString<Algorithm>(byte[] binary, bool upper = true) where Algorithm : HashAlgorithm {
-            return HashExtension.ToHashString<Algorithm>(binary, upper);
+        public static string ToHashString<Algorithm>(this byte[] binary, bool upper = true) where Algorithm : HashAlgorithm {
+            return HashUtility.ToHashString<Algorithm>(binary, upper);
         }
     }
 }
