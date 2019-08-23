@@ -45,8 +45,20 @@ namespace XPY.ToolKit.Utilities.Common.Test {
 
         [Theory(DisplayName = "DateTime轉換為UnixTimestampMilliseconds測試")]
         [MemberData(nameof(TestDataSets2))]
-        public void ToUnixTimestampMillisecondsTest(DateTime datetime, long unixTimestamp) {
-            Assert.Equal(unixTimestamp, DateTimeUtility.ToUnixTimestampMilliseconds(datetime));
+        public void ToUnixTimestampMillisecondsTest(DateTime datetime, long unixTimestampMilliseconds) {
+            Assert.Equal(unixTimestampMilliseconds, DateTimeUtility.ToUnixTimestampMilliseconds(datetime));
+        }
+
+        [Theory(DisplayName = "UnixTimestamp轉換為DateTime測試")]
+        [MemberData(nameof(TestDataSets1))]
+        public void FromUnixTimestampTest(DateTime datetime, long unixTimestamp) {
+            Assert.Equal(datetime, DateTimeUtility.FromUnixTimestamp(unixTimestamp));
+        }
+
+        [Theory(DisplayName = "UnixTimestampMilliseconds轉換為DateTime測試")]
+        [MemberData(nameof(TestDataSets2))]
+        public void FromUnixTimestampMillisecondsTest(DateTime datetime, long unixTimestampMilliseconds) {
+            Assert.Equal(datetime, DateTimeUtility.FromUnixTimestampMilliseconds(unixTimestampMilliseconds));
         }
     }
 }
