@@ -9,7 +9,7 @@ namespace XPY.ToolKit.Utilities.Common {
         /// </summary>
         /// <param name="unixTime">Unix Timestamp</param>
         /// <returns><see cref="DateTime"/>實例結果</returns>
-        public static DateTime FromUnixTimestamp(this long unixTime) {
+        public static DateTime ToDateTimeFromTimestamp(this long unixTime) {
             return DateTimeUtility.FromUnixTimestamp(unixTime);
         }
 
@@ -18,7 +18,7 @@ namespace XPY.ToolKit.Utilities.Common {
         /// </summary>
         /// <param name="unixTime">Unix Timestamp Milliseconds</param>
         /// <returns><see cref="DateTime"/>實例結果</returns>
-        public static DateTime FromUnixTimestampMilliseconds(this long unixTime) {
+        public static DateTime ToDateTimeFromTimestampMilliseconds(this long unixTime) {
             return DateTimeUtility.FromUnixTimestampMilliseconds(unixTime);
 
         }
