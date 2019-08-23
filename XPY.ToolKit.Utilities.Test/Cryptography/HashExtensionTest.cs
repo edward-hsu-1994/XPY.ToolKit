@@ -3,11 +3,10 @@ using System.Collections.Generic;
 using System.IO;
 using System.Security.Cryptography;
 using System.Text;
-using XPY.ToolKit.Utilities.Cryptography;
 using XPY.ToolKit.Utilities.Test.Helpers;
 using Xunit;
 
-namespace XPY.ToolKit.Utilities.Test {
+namespace XPY.ToolKit.Utilities.Cryptography.Test {
     public class HashExtensionTest {
         [Theory(DisplayName = "字串轉雜湊字串測試")]
         [InlineData("1234", false, "81dc9bdb52d04dc20036dbd8313ed055")]
