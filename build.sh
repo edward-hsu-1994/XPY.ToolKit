@@ -15,7 +15,7 @@ find . -type d | grep '^./XPY.ToolKit.[^/]*$' | { while read -r project; do eval
 find . -type d | grep '^./XPY.ToolKit.[^/]*$' | grep '\b\.Test$' | { while read -r project; do eval "dotnet test $project /p:CollectCoverage=true;"; done }
 
 # Codecov
-cat ./codecov.sh | bash -s - -t $2
+cat ./codecov.sh | bash -s - -f "*/coverage.json" -t $2
 
 # Pack
 find . -type d | grep '^./XPY.ToolKit.[^/]*$' | grep -v '\b\.Test$' | { while read -r project; do eval "dotnet build $project; "; done }
