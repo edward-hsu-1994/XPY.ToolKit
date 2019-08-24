@@ -49,11 +49,12 @@ namespace XPY.ToolKit.Utilities.Common {
         /// <param name="c">字元</param>
         /// <returns>語系名稱</returns>
         private static string GetLangType(this char c) {
+            string result = null;
             foreach (var func in LangRanges) {
-                var result = func(c);
-                if (result != null) return result;
+                result = func(c);
+                if (result != null) break;
             }
-            return null;
+            return result;
         }
 
 
