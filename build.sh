@@ -12,10 +12,10 @@ rm -R -f $path
 find . -type d | grep '^./XPY.ToolKit.[^/]*$' | { while read -r project; do eval "dotnet restore $project;"; done }
 
 # Unit Test
-find . -type d | grep '^./XPY.ToolKit.[^/]*$' | grep '\b\.Test$' | { while read -r project; do eval "dotnet test $project /p:CollectCoverage=true;"; done }
+find . -type d | grep '^./XPY.ToolKit.[^/]*$' | grep '\b\.Test$' | { while read -r project; do eval "dotnet test $project /p:CollectCoverage=true /p:CoverletOutputFormat=opencover;"; done }
 
 # Codecov
-cat ./codecov.sh | bash -s - -f "*/coverage.json" -t $2
+cat ./codecov.sh | bash -s - -f "*/coverage.opencover.xml" -t $2
 
 # Pack
 find . -type d | grep '^./XPY.ToolKit.[^/]*$' | grep -v '\b\.Test$' | { while read -r project; do eval "dotnet build $project; "; done }
