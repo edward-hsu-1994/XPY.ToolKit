@@ -1,5 +1,6 @@
 XPY.ToolKit
 =====
+[![codecov](https://codecov.io/gh/XuPeiYao/XPY.ToolKit/branch/master/graph/badge.svg)](https://codecov.io/gh/XuPeiYao/XPY.ToolKit)
 
 ## 命名空間
 1. XPY.ToolKit.Utilities: 公用方法與常用方法集
