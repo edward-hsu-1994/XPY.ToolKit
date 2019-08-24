@@ -5,7 +5,7 @@ using System.Text;
 
 namespace XPY.ToolKit.Utilities.Common {
     /// <summary>
-    /// 針對<see cref="String"/>常用方法
+    /// 常用String處理方法
     /// </summary>
     public static class StringUtility {
         /// <summary>
