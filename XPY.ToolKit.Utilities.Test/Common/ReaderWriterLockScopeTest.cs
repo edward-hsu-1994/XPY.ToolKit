@@ -42,14 +42,10 @@ namespace XPY.ToolKit.Utilities.Common.Test {
             int result = 0;
             ReaderWriterLockSlim locker = new ReaderWriterLockSlim(LockRecursionPolicy.SupportsRecursion);
             Parallel.For(0, 100, (_) => {
-                using (var scope1 = new ReaderWriterLockScope(locker, ReaderWriterLockMode.UpgradeableRead)) {
+                using (var scope1 = new ReaderWriterLockScope(locker, ReaderWriterLockMode.Read)) {
                     result = _;
-                    using (var scope2 = new ReaderWriterLockScope(locker, ReaderWriterLockMode.UpgradeableRead)) {
-                        result = _;
-                    }
                 }
             });
-            Assert.Equal(99, result);
         }
     }
 }
