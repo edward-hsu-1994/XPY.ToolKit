@@ -3,7 +3,7 @@ using System.Collections.Generic;
 using System.Text;
 using Xunit;
 
-namespace XPY.ToolKit.Utilities.Common {
+namespace XPY.ToolKit.Utilities.Common.Test {
     /// <summary>
     /// 重試操作方法
     /// </summary>
@@ -47,6 +47,10 @@ namespace XPY.ToolKit.Utilities.Common {
                 });
             });
             Assert.Equal(3, retry);
+
+            RetryUtility.Retry(3, async () => {
+                return 1;
+            });
         }
     }
 }
