@@ -9,8 +9,10 @@ namespace XPY.ToolKit.Utilities.Reflection.Test {
         public class MemberInfoTestClass {
             public string Field = "Field";
             public string Property => "Property";
-            public string Method() {
+            public string MethodFunc() {
                 return "Method";
+            }
+            public void MethodAction() {
             }
         }
 
@@ -27,9 +29,21 @@ namespace XPY.ToolKit.Utilities.Reflection.Test {
         }
 
         [Fact(DisplayName = "取得成員資訊-方法測試")]
+        public void GetMemberInfoMethodActionTest() {
+            var obj = new MemberInfoTestClass();
+            Assert.Equal(typeof(MemberInfoTestClass).GetMethod("MethodFunc"), obj.GetMemberInfo(x => x.MethodFunc()));
+        }
+
+        [Fact(DisplayName = "取得成員資訊-函數測試")]
         public void GetMemberInfoMethodTest() {
             var obj = new MemberInfoTestClass();
-            Assert.Equal(typeof(MemberInfoTestClass).GetMethod("Method"), obj.GetMemberInfo(x => x.Method()));
+            Assert.Equal(typeof(MemberInfoTestClass).GetMethod("MethodAction"), obj.GetMemberInfo(x => x.MethodAction()));
+        }
+
+        [Fact(DisplayName = "取得成員資訊-建構子測試")]
+        public void GetMemberInfoConstructorTest() {
+            var obj = new MemberInfoTestClass();
+            Assert.Equal(typeof(MemberInfoTestClass).GetConstructor(Type.EmptyTypes), obj.GetMemberInfo(x => new MemberInfoTestClass()));
         }
     }
 }
