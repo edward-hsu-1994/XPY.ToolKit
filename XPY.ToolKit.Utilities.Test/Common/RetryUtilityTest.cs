@@ -1,6 +1,7 @@
 ﻿using System;
 using System.Collections.Generic;
 using System.Text;
+using System.Threading.Tasks;
 using Xunit;
 
 namespace XPY.ToolKit.Utilities.Common.Test {
@@ -9,7 +10,7 @@ namespace XPY.ToolKit.Utilities.Common.Test {
     /// </summary>
     public static class RetryUtilityTest {
         [Fact(DisplayName = "重試函數操作測試")]
-        public static void RetryFuncTest() {
+        public static async Task RetryFuncTest() {
             int retry = 0;
             RetryUtility.Retry(3, () => {
                 retry++;
@@ -24,6 +25,12 @@ namespace XPY.ToolKit.Utilities.Common.Test {
                 });
             });
             Assert.Equal(3, retry);
+
+            retry = 0;
+            await RetryUtility.Retry(3, async () => {
+                return Task.FromResult(retry++);
+            });
+            Assert.Equal(1, retry);
         }
 
         [Fact(DisplayName = "重試方法操作測試")]
@@ -47,10 +54,6 @@ namespace XPY.ToolKit.Utilities.Common.Test {
                 });
             });
             Assert.Equal(3, retry);
-
-            RetryUtility.Retry(3, async () => {
-                return 1;
-            });
         }
     }
 }
