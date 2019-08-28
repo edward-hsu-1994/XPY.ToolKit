@@ -58,5 +58,27 @@ namespace XPY.ToolKit.Utilities.Common {
         public static string InnerString(this string str, string start, string end) {
             return StringUtility.InnerString(str, start, end);
         }
+
+        /// <summary>
+        /// 在指定的索引位置切割字串
+        /// </summary>
+        /// <param name="str">字串實例</param>
+        /// <param name="sliceIndexes">切割索引</param>
+        /// <returns>切割後的字串陣列</returns>
+        public static string[] Slice(this string str, params int[] sliceIndexes) {
+            return StringUtility.Slice(str, sliceIndexes);
+        }
+
+        /// <summary>
+        /// 取代指定字串索引範圍內的字串
+        /// </summary>
+        /// <param name="str">字串實例</param>
+        /// <param name="index">起始索引</param>
+        /// <param name="length">長度</param>
+        /// <param name="newValue">取代字串</param>
+        /// <returns>取代後的字串</returns>
+        public static string ReplaceRange(this string str, int index, int length, string newValue) {
+            return StringUtility.ReplaceRange(str, index, length, newValue);
+        }
     }
 }

@@ -131,5 +131,44 @@ namespace XPY.ToolKit.Utilities.Common {
             string result = str.SafeSubstring(str.IndexOf(start) + start.Length);
             return result.SafeSubstring(0, result.IndexOf(end));
         }
+
+        /// <summary>
+        /// 在指定的索引位置切割字串
+        /// </summary>
+        /// <param name="str">字串實例</param>
+        /// <param name="sliceIndexes">切割索引</param>
+        /// <returns>切割後的字串陣列</returns>
+        public static string[] Slice(string str, params int[] sliceIndexes) {
+            List<string> result = new List<string>();
+
+            string temp = str;
+
+            int preIndex = 0;
+            foreach (var index in sliceIndexes) {
+                result.Add(temp.SafeSubstring(0, index - preIndex));
+                temp = temp.SafeSubstring(index - preIndex);
+
+                preIndex = index;
+            }
+
+            result.Add(temp);
+
+            return result.ToArray();
+        }
+
+        /// <summary>
+        /// 取代指定字串索引範圍內的字串
+        /// </summary>
+        /// <param name="str">字串實例</param>
+        /// <param name="index">起始索引</param>
+        /// <param name="length">長度</param>
+        /// <param name="newValue">取代字串</param>
+        /// <returns>取代後的字串</returns>
+        public static string ReplaceRange(string str, int index, int length, string newValue) {
+            string[] segments = Slice(str, index, index + length);
+            segments[1] = newValue;
+
+            return string.Join("", segments);
+        }
     }
 }
