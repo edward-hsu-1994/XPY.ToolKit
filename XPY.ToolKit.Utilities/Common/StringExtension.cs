@@ -26,5 +26,16 @@ namespace XPY.ToolKit.Utilities.Common {
         public static string[] Split(this string str, int chunkSize) {
             return StringUtility.Split(str, chunkSize);
         }
+
+        /// <summary>
+        /// 安全的從目前實例擷取子字串。子字串會在指定的字元開始並繼續到字串結尾
+        /// </summary>
+        /// <param name="str">字串實例</param>
+        /// <param name="startIndex">起始索引</param>
+        /// <param name="length">擷取子字串最長長度</param>
+        /// <returns>子字串</returns>
+        public static string SafeSubstring(this string str, int startIndex, int? length = null) {
+            return StringUtility.SafeSubstring(str, startIndex, length);
+        }
     }
 }

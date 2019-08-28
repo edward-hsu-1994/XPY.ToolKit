@@ -85,9 +85,26 @@ namespace XPY.ToolKit.Utilities.Common {
         /// <param name="chunkSize">區塊大小</param>
         /// <returns>切割後的字串</returns>
         public static string[] Split(string str, int chunkSize) {
-            return Enumerable.Range(0, str.Length / chunkSize)
-                .Select(x => str.Substring(x * chunkSize, chunkSize))
+            return Enumerable.Range(0, (int)Math.Ceiling(((double)str.Length) / chunkSize))
+                .Select(x => SafeSubstring(str, x * chunkSize, chunkSize))
                 .ToArray();
+        }
+
+        /// <summary>
+        /// 安全的從目前實例擷取子字串。子字串會在指定的字元開始並繼續到字串結尾
+        /// </summary>
+        /// <param name="str">字串實例</param>
+        /// <param name="startIndex">起始索引</param>
+        /// <param name="length">擷取子字串最長長度</param>
+        /// <returns>子字串</returns>
+        public static string SafeSubstring(string str, int startIndex, int? length = null) {
+            if (!length.HasValue) length = str.Length;
+            if (str.Length <= startIndex) return string.Empty;
+            if (startIndex < 0) startIndex = 0;
+            if (length < 0) length = 0;
+            string result = str.Substring(startIndex);
+            length = Math.Min(result.Length, length.Value);
+            return result.Substring(0, length.Value);
         }
     }
 }

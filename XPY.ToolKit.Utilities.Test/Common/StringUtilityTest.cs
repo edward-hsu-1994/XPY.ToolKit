@@ -7,7 +7,7 @@ namespace XPY.ToolKit.Utilities.Common.Test {
     public class StringUtilityTest {
         [Theory(DisplayName = "字串固定大小切割測試")]
         [InlineData("0123456789", 5, "01234,56789")]
-        [InlineData("0123456789", 3, "012,345,678")]
+        [InlineData("0123456789", 3, "012,345,678,9")]
         [InlineData("0123456789", 1, "0,1,2,3,4,5,6,7,8,9")]
         [InlineData("0123456789", 10, "0123456789")]
         public void SplitTest(string origin, int chunkSize, string result) {
