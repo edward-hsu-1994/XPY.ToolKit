@@ -41,5 +41,15 @@ namespace XPY.ToolKit.Utilities.Common.Test {
         public void IsMatchTest(string origin, string regex, bool isMatch) {
             Assert.True(origin.IsMatch(regex) == isMatch);
         }
+
+        [Theory(DisplayName = "字串間子字串")]
+        [InlineData("0123456789", "2", "3", "")]
+        [InlineData("0123456789", "2", "4", "3")]
+        [InlineData("0123456789", "2", "-", "")]
+        [InlineData("0123456789", "9", "4", "")]
+        [InlineData("0123456789", "0", "5", "1234")]
+        public void InnerStringTest(string origin, string start, string end, string result) {
+            Assert.Equal(result, origin.InnerString(start, end));
+        }
     }
 }
