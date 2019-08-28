@@ -10,5 +10,8 @@
     <RepositoryUrl>https://github.com/XuPeiYao/XPY.ToolKit</RepositoryUrl>
     <RepositoryType>git</RepositoryType>
   </PropertyGroup>
-
+  
+  <ItemGroup>
+    <PackageReference Include="PCRE.NET" Version="0.10.1" />
+  </ItemGroup>
 </Project>

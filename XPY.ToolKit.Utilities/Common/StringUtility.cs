@@ -1,7 +1,9 @@
-﻿using System;
+﻿using PCRE;
+using System;
 using System.Collections.Generic;
 using System.Linq;
 using System.Text;
+using System.Text.RegularExpressions;
 
 namespace XPY.ToolKit.Utilities.Common {
     /// <summary>
@@ -105,6 +107,17 @@ namespace XPY.ToolKit.Utilities.Common {
             string result = str.Substring(startIndex);
             length = Math.Min(result.Length, length.Value);
             return result.Substring(0, length.Value);
+        }
+
+        /// <summary>
+        /// 檢查字串是否符合表示式
+        /// </summary>
+        /// <param name="str">字串實例</param>
+        /// <param name="pattern">正規表示式</param>
+        /// <returns>是否符合表示式</returns>
+        public static bool IsMatch(string str, string pattern) {
+            var regex = new PcreRegex(pattern);
+            return regex.IsMatch(str);
         }
     }
 }
