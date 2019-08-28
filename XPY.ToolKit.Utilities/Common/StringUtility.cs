@@ -119,5 +119,17 @@ namespace XPY.ToolKit.Utilities.Common {
             var regex = new PcreRegex(pattern);
             return regex.IsMatch(str);
         }
+
+        /// <summary>
+        /// 取得指定字串間的字串
+        /// </summary>
+        /// <param name="str">字串實例</param>
+        /// <param name="start">起始字串</param>
+        /// <param name="end">結束字串</param>
+        /// <returns>字串間的字串</returns>
+        public static string InnerString(string str, string start, string end) {
+            string result = str.SafeSubstring(str.IndexOf(start) + start.Length);
+            return result.SafeSubstring(0, result.IndexOf(end));
+        }
     }
 }

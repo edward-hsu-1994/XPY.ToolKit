@@ -47,5 +47,16 @@ namespace XPY.ToolKit.Utilities.Common {
         public static bool IsMatch(this string str, string pattern) {
             return StringUtility.IsMatch(str, pattern);
         }
+
+        /// <summary>
+        /// 取得指定字串間的字串
+        /// </summary>
+        /// <param name="str">字串實例</param>
+        /// <param name="start">起始字串</param>
+        /// <param name="end">結束字串</param>
+        /// <returns>字串間的字串</returns>
+        public static string InnerString(this string str, string start, string end) {
+            return StringUtility.InnerString(str, start, end);
+        }
     }
 }
