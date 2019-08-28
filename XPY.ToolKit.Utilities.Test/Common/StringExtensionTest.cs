@@ -22,5 +22,24 @@ namespace XPY.ToolKit.Utilities.Common.Test {
         public void SpacingTest(string origin, string result) {
             Assert.Equal(result, origin.Spacing());
         }
+
+        [Theory(DisplayName = "安全的Substring")]
+        [InlineData("ABCDEFGH", 1, 5, "BCDEF")]
+        [InlineData("ABCDEFGH", 0, 5, "ABCDE")]
+        [InlineData("ABCDEFGH", 5, 5, "FGH")]
+        [InlineData("ABCDEFGH", 7, 5, "H")]
+        [InlineData("ABCDEFGH", 8, 1, "")]
+        [InlineData("ABCDEFGH", 8, 100, "")]
+        public void SafeSubstringTest(string origin, int startIndex, int length, string result) {
+            Assert.Equal(result, origin.SafeSubstring(startIndex, length));
+        }
+
+        [Theory(DisplayName = "字串是否符合表示式")]
+        [InlineData("A123456789", "[A-Z][0-9]{9}", true)]
+        [InlineData("A12346789", "[A-Z][0-9]{9}", false)]
+        [InlineData("A12346789", "[A-Z][0-9]{2,}", true)]
+        public void IsMatchTest(string origin, string regex, bool isMatch) {
+            Assert.True(origin.IsMatch(regex) == isMatch);
+        }
     }
 }
