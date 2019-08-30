@@ -1,5 +1,6 @@
 ﻿using System;
 using System.Collections.Generic;
+using System.Linq;
 using System.Text;
 using Xunit;
 
@@ -50,6 +51,20 @@ namespace XPY.ToolKit.Utilities.Common.Test {
         [InlineData("0123456789", "0", "5", "1234")]
         public void InnerStringTest(string origin, string start, string end, string result) {
             Assert.Equal(result, origin.InnerString(start, end));
+        }
+
+
+        [Theory(DisplayName = "指定索引位置切割字串")]
+        [InlineData("0123456789", "2,3", "01,2,3456789")]
+        [InlineData("0123456789", "2,5,8", "01,234,567,89")]
+        [InlineData("0123456789", "0,1,2,3", ",0,1,2,3456789")]
+        [InlineData("0123456789", "5", "01234,56789")]
+        public void SliceTest(string input, string indexes, string output) {
+            Assert.Equal(output,
+                string.Join(",",
+                    input.Slice(indexes.Split(',').Select(int.Parse).ToArray())
+                )
+            );
         }
     }
 }
