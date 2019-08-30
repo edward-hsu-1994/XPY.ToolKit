@@ -65,5 +65,13 @@ namespace XPY.ToolKit.Utilities.Common.Test {
                 )
             );
         }
+
+        [Theory(DisplayName = "取代指定區間的字串")]
+        [InlineData("0123456789", 1, 1, "aaa", "0aaa23456789")]
+        [InlineData("0123456789", 2, 5, "123", "01123789")]
+        [InlineData("0123456789", 1, 8, "x", "0x9")]
+        public void ReplaceRangeTest(string str, int index, int length, string newValue, string result) {
+            Assert.Equal(result, StringUtility.ReplaceRange(str, index, length, newValue));
+        }
     }
 }

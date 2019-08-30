@@ -53,7 +53,6 @@ namespace XPY.ToolKit.Utilities.Common.Test {
             Assert.Equal(result, origin.InnerString(start, end));
         }
 
-
         [Theory(DisplayName = "指定索引位置切割字串")]
         [InlineData("0123456789", "2,3", "01,2,3456789")]
         [InlineData("0123456789", "2,5,8", "01,234,567,89")]
@@ -65,6 +64,14 @@ namespace XPY.ToolKit.Utilities.Common.Test {
                     input.Slice(indexes.Split(',').Select(int.Parse).ToArray())
                 )
             );
+        }
+
+        [Theory(DisplayName = "取代指定區間的字串")]
+        [InlineData("0123456789", 1, 1, "aaa", "0aaa23456789")]
+        [InlineData("0123456789", 2, 5, "123", "01123789")]
+        [InlineData("0123456789", 1, 8, "x", "0x9")]
+        public void ReplaceRangeTest(string str, int index, int length, string newValue, string result) {
+            Assert.Equal(result, str.ReplaceRange(index, length, newValue));
         }
     }
 }
