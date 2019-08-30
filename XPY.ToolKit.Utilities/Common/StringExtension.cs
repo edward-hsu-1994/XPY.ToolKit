@@ -26,5 +26,59 @@ namespace XPY.ToolKit.Utilities.Common {
         public static string[] Split(this string str, int chunkSize) {
             return StringUtility.Split(str, chunkSize);
         }
+
+        /// <summary>
+        /// 安全的從目前實例擷取子字串。子字串會在指定的字元開始並繼續到字串結尾
+        /// </summary>
+        /// <param name="str">字串實例</param>
+        /// <param name="startIndex">起始索引</param>
+        /// <param name="length">擷取子字串最長長度</param>
+        /// <returns>子字串</returns>
+        public static string SafeSubstring(this string str, int startIndex, int? length = null) {
+            return StringUtility.SafeSubstring(str, startIndex, length);
+        }
+
+        /// <summary>
+        /// 檢查字串是否符合表示式
+        /// </summary>
+        /// <param name="str">字串實例</param>
+        /// <param name="pattern">正規表示式</param>
+        /// <returns>是否符合表示式</returns>
+        public static bool IsMatch(this string str, string pattern) {
+            return StringUtility.IsMatch(str, pattern);
+        }
+
+        /// <summary>
+        /// 取得指定字串間的字串
+        /// </summary>
+        /// <param name="str">字串實例</param>
+        /// <param name="start">起始字串</param>
+        /// <param name="end">結束字串</param>
+        /// <returns>字串間的字串</returns>
+        public static string InnerString(this string str, string start, string end) {
+            return StringUtility.InnerString(str, start, end);
+        }
+
+        /// <summary>
+        /// 在指定的索引位置切割字串
+        /// </summary>
+        /// <param name="str">字串實例</param>
+        /// <param name="sliceIndexes">切割索引</param>
+        /// <returns>切割後的字串陣列</returns>
+        public static string[] Slice(this string str, params int[] sliceIndexes) {
+            return StringUtility.Slice(str, sliceIndexes);
+        }
+
+        /// <summary>
+        /// 取代指定字串索引範圍內的字串
+        /// </summary>
+        /// <param name="str">字串實例</param>
+        /// <param name="index">起始索引</param>
+        /// <param name="length">長度</param>
+        /// <param name="newValue">取代字串</param>
+        /// <returns>取代後的字串</returns>
+        public static string ReplaceRange(this string str, int index, int length, string newValue) {
+            return StringUtility.ReplaceRange(str, index, length, newValue);
+        }
     }
 }
