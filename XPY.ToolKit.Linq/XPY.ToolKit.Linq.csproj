@@ -11,4 +11,12 @@
     <RepositoryType>git</RepositoryType>
   </PropertyGroup>
 
+  <ItemGroup>
+    <Compile Remove="IEnumerableExtension.Between.cs" />
+  </ItemGroup>
+
+  <ItemGroup>
+    <None Include="IEnumerableExtension.Between.cs" />
+  </ItemGroup>
+
 </Project>
