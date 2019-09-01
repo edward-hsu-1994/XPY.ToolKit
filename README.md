@@ -11,3 +11,4 @@ XPY.ToolKit
 6. XPY.ToolKit.AspNetCore.SSO: ASP.NET Core SSO支援
 7. XPY.ToolKit.AspNetCore.RabbitMQ: RabbitMQ的DI支援
 8. XPY.ToolKit.AspNetCore.WebSockets: WebSockets包裝
+9. XPY.ToolKit.AspNetCore.Mvc.Multipart: Multipart擴充
