@@ -2,6 +2,13 @@
 
   <PropertyGroup>
     <TargetFramework>netstandard2.0</TargetFramework>
+    <GeneratePackageOnBuild>true</GeneratePackageOnBuild>
+    <Authors>XuPeiYao</Authors>
+    <Description>Linq常用方法</Description>
+    <Copyright>MIT</Copyright>
+    <PackageProjectUrl>https://github.com/XuPeiYao/XPY.ToolKit</PackageProjectUrl>
+    <RepositoryUrl>https://github.com/XuPeiYao/XPY.ToolKit</RepositoryUrl>
+    <RepositoryType>git</RepositoryType>
   </PropertyGroup>
 
 </Project>
