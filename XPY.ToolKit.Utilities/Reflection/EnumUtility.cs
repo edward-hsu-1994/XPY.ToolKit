@@ -18,8 +18,6 @@ namespace XPY.ToolKit.Utilities.Reflection {
         /// <returns>Attribute集合</returns>
         public static IEnumerable<Attribute> GetCustomAttributes<TEnum>(TEnum value, Type attributeType)
             where TEnum : Enum {
-            var isEnum = value.GetType().GetTypeInfo().IsValueType;
-            if (!isEnum) throw new NotSupportedException("value is not Enum");
             var typeinfo = value.GetType().GetTypeInfo();
             var fieldInfo = typeinfo.GetField(value.ToString());
             return fieldInfo.GetCustomAttributes(attributeType);
@@ -34,8 +32,6 @@ namespace XPY.ToolKit.Utilities.Reflection {
         /// <returns>Attribute</returns>
         public static Attribute GetCustomAttribute<TEnum>(TEnum value, Type attributeType)
             where TEnum : Enum {
-            var isEnum = value.GetType().GetTypeInfo().IsValueType;
-            if (!isEnum) throw new NotSupportedException("value is not Enum");
             var typeinfo = value.GetType().GetTypeInfo();
             var fieldInfo = typeinfo.GetField(value.ToString());
             return fieldInfo.GetCustomAttribute(attributeType);
