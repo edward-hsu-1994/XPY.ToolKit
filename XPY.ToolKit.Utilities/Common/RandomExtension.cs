@@ -60,17 +60,6 @@ namespace XPY.ToolKit.Utilities.Common {
         }
 
         /// <summary>
-        /// 隨機自字串陣列中取得值
-        /// </summary>
-        /// <param name="rand"><see cref="Random"/>實例</param>
-        /// <param name="data">目標字串</param>
-        /// <returns>亂數結果</returns>
-        public static string NextString(this Random rand, params string[] data) {
-            int index = rand.Next(data.Length);
-            return data[index];
-        }
-
-        /// <summary>
         /// 隨機自陣列中取得值
         /// </summary>
         /// <param name="rand"><see cref="Random"/>實例</param>
