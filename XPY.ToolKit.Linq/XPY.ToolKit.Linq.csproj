@@ -1,4 +1,4 @@
-<Project Sdk="Microsoft.NET.Sdk">
+﻿<Project Sdk="Microsoft.NET.Sdk">
 
   <PropertyGroup>
     <TargetFramework>netstandard2.0</TargetFramework>
@@ -10,13 +10,5 @@
     <RepositoryUrl>https://github.com/XuPeiYao/XPY.ToolKit</RepositoryUrl>
     <RepositoryType>git</RepositoryType>
   </PropertyGroup>
-
-  <ItemGroup>
-    <Compile Remove="IEnumerableExtension.Between.cs" />
-  </ItemGroup>
-
-  <ItemGroup>
-    <None Include="IEnumerableExtension.Between.cs" />
-  </ItemGroup>
 
 </Project>

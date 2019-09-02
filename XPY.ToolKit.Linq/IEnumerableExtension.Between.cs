@@ -1,6 +1,7 @@
 ﻿using System;
 using System.Collections.Generic;
 using System.Text;
+using System.Linq;
 
 namespace XPY.ToolKit.Linq {
     public static partial class IEnumerableExtension {
