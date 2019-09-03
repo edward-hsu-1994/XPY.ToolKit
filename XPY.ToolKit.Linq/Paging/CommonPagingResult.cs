@@ -103,7 +103,7 @@ namespace XPY.ToolKit.Linq.Paging {
                 return false;
             }
 
-            var newOffset = Offset * pageIndex;
+            var newOffset = Limit * pageIndex;
 
             if (newOffset < 0 || newOffset >= TotalCount) return false;
 
@@ -122,7 +122,7 @@ namespace XPY.ToolKit.Linq.Paging {
                 pageIndex = 0;
             }
 
-            var newOffset = Offset * pageIndex;
+            var newOffset = Limit * pageIndex;
 
             if (newOffset < 0 || newOffset >= TotalCount) return null;
 
@@ -135,7 +135,7 @@ namespace XPY.ToolKit.Linq.Paging {
         /// <param name="deltaPageCount">分頁索引變動量</param>
         /// <returns>是否移動成功</returns>
         public virtual bool MovePage(int deltaPageCount) {
-            if (Limit == -1 && deltaPageCount != 0) {
+            if (Offset == -1 && deltaPageCount != 0) {
                 return false;
             }
 
