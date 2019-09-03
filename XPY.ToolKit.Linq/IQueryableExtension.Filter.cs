@@ -20,6 +20,10 @@ namespace XPY.ToolKit.Linq {
             Expression<Func<TSource, TProperty>> selector,
             Nullable<TProperty> value)
             where TProperty : struct {
+            var selectPropertyName = (selector.Body as MemberExpression)?.Member?.Name;
+
+            var isParam = selector.Body is ParameterExpression;
+
             var result = source;
 
             var p = Expression.Parameter(typeof(TSource), "x");
@@ -27,10 +31,20 @@ namespace XPY.ToolKit.Linq {
             if (value.HasValue) {
                 return result.Where(
                         Expression.Lambda<Func<TSource, bool>>(
-                            Expression.Equal(
-                                Expression.Constant(value, typeof(Nullable<TProperty>)),
-                                Expression.Constant(null, typeof(Nullable<TProperty>))
-                            ), p)
+                            Expression.OrElse(
+                                Expression.Equal(
+                                    Expression.Constant(value, typeof(Nullable<TProperty>)),
+                                    Expression.Constant(null, typeof(Nullable<TProperty>))
+                                ),
+                                Expression.Equal(
+                                    (isParam ? p : (Expression)Expression.PropertyOrField(
+                                        p,
+                                        selectPropertyName
+                                    )),
+                                    Expression.Constant(value, typeof(TProperty))
+                                )
+                            ),
+                         p)
                       );
             } else {
                 return result;
