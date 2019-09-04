@@ -1,5 +1,6 @@
 ﻿using System;
 using System.Collections.Generic;
+using System.Linq;
 using System.Text;
 
 namespace XPY.ToolKit.Linq.Paging {
@@ -17,6 +18,21 @@ namespace XPY.ToolKit.Linq.Paging {
         /// <returns>分頁結果</returns>
         public static CommonPagingResult<TSource> AsPaging<TSource>(
             this IEnumerable<TSource> source,
+            int offset = 0,
+            int limit = 10) {
+            return source.AsQueryable().AsPaging(offset, limit);
+        }
+
+        /// <summary>
+        /// 將列舉項目轉換為分頁類型
+        /// </summary>
+        /// <typeparam name="TSource">元素類型</typeparam>
+        /// <param name="source">分頁資料來源</param>
+        /// <param name="offset">起始索引</param>
+        /// <param name="limit">取得筆數</param>
+        /// <returns>分頁結果</returns>
+        public static CommonPagingResult<TSource> AsPaging<TSource>(
+            this IQueryable<TSource> source,
             int offset = 0,
             int limit = 10) {
             return new CommonPagingResult<TSource>(source, offset, limit);
