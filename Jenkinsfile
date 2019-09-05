@@ -5,7 +5,7 @@ pipeline {
         stage('Build') { 
             steps { 
                 echo "Build... $GIT_BRANCH";
-                sh "bash ./build.sh " + "$GIT_BRANCH".replaceAll("refs/tags/") + " $codecov ";
+                sh "bash ./build.sh " + "$GIT_BRANCH".replaceAll("refs/tags/") + " $Codecov ";
             }
         }
         stage('Deploy') {
