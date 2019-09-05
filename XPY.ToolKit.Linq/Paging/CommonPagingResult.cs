@@ -12,21 +12,14 @@ namespace XPY.ToolKit.Linq.Paging {
         /// <summary>
         /// 分頁資料來源
         /// </summary>
-        public virtual IEnumerable<TSource> Source { get; private set; }
+        public virtual IQueryable<TSource> Source { get; private set; }
 
         /// <summary>
         /// 分頁結果
         /// </summary>
-        public virtual IEnumerable<TSource> Result {
+        public virtual IQueryable<TSource> Result {
             get {
-                IEnumerable<TSource> result = null;
-                if (Offset == -1) {
-                    result = Source.Skip(Offset);
-                } else {
-                    result = Source.Skip(Offset).Take(Limit).ToArray();
-                }
-
-                return result;
+                return Source.Skip(Offset).Take(Limit);
             }
         }
 
@@ -40,10 +33,11 @@ namespace XPY.ToolKit.Linq.Paging {
         /// </summary>
         public virtual int Limit { get; private set; }
 
+        Lazy<int> _lazyTotalCount;
         /// <summary>
         /// 資料總數
         /// </summary>
-        public virtual int TotalCount => Source.Count();
+        public virtual int TotalCount => _lazyTotalCount.Value;
 
         /// <summary>
         /// 目前所在分頁索引
@@ -87,10 +81,11 @@ namespace XPY.ToolKit.Linq.Paging {
         /// <param name="source">分頁資料來源</param>
         /// <param name="offset">起始索引</param>
         /// <param name="limit">取得筆數，如果為-1則表示取得所有資訊不分頁</param>
-        public CommonPagingResult(IEnumerable<TSource> source, int offset, int limit) {
+        public CommonPagingResult(IQueryable<TSource> source, int offset, int limit) {
             this.Source = source;
             this.Offset = offset;
             this.Limit = limit;
+            _lazyTotalCount = new Lazy<int>(Source.Count);
         }
 
         /// <summary>
