@@ -1,2 +1,0 @@
-XPY.ToolKit.AspNetCore.RabbitMQ
-=====

@@ -19,19 +19,9 @@ Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "XPY.ToolKit.Linq", "XPY.Too
 EndProject
 Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "XPY.ToolKit.Linq.Test", "XPY.ToolKit.Linq.Test\XPY.ToolKit.Linq.Test.csproj", "{6D09C7F8-7657-4F67-8CC0-BC853770A269}"
 EndProject
-Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "XPY.ToolKit.Wrappers.FFMPEG", "XPY.ToolKit.Wrappers.FFMPEG\XPY.ToolKit.Wrappers.FFMPEG.csproj", "{5E12E304-8577-4B46-9B2F-08E5830668F8}"
-EndProject
-Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "XPY.ToolKit.Wrappers.WebP", "XPY.ToolKit.Wrappers.WebP\XPY.ToolKit.Wrappers.WebP.csproj", "{BCEA1EF1-4448-4D45-BDF1-9BC9BEAF6B6F}"
-EndProject
-Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "XPY.ToolKit.AspNetCore", "XPY.ToolKit.AspNetCore\XPY.ToolKit.AspNetCore.csproj", "{6F75789F-5019-4BF6-B3C1-953712F4ECA2}"
-EndProject
-Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "XPY.ToolKit.AspNetCore.Mvc.Multipart", "XPY.ToolKit.AspNetCore.Mvc.Multipart\XPY.ToolKit.AspNetCore.Mvc.Multipart.csproj", "{490C22BD-7DB7-4C8D-B9DC-7E6E67A1ADD6}"
-EndProject
-Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "XPY.ToolKit.AspNetCore.RabbitMQ", "XPY.ToolKit.AspNetCore.RabbitMQ\XPY.ToolKit.AspNetCore.RabbitMQ.csproj", "{B1DEA279-FF11-4F82-AA92-EE5744D7FE70}"
-EndProject
 Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "XPY.ToolKit.Base58", "XPY.ToolKit.Base58\XPY.ToolKit.Base58.csproj", "{7A3EFEF9-65E5-406D-AE95-41714AA7BBD3}"
 EndProject
-Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "XPY.ToolKit.Base58.Test", "XPY.ToolKit.Base58.Test\XPY.ToolKit.Base58.Test.csproj", "{B428D683-EA65-4A92-BA16-3F1C4156D4C4}"
+Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "XPY.ToolKit.Base58.Test", "XPY.ToolKit.Base58.Test\XPY.ToolKit.Base58.Test.csproj", "{B428D683-EA65-4A92-BA16-3F1C4156D4C4}"
 EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution
@@ -55,26 +45,6 @@ Global
 		{6D09C7F8-7657-4F67-8CC0-BC853770A269}.Debug|Any CPU.Build.0 = Debug|Any CPU
 		{6D09C7F8-7657-4F67-8CC0-BC853770A269}.Release|Any CPU.ActiveCfg = Release|Any CPU
 		{6D09C7F8-7657-4F67-8CC0-BC853770A269}.Release|Any CPU.Build.0 = Release|Any CPU
-		{5E12E304-8577-4B46-9B2F-08E5830668F8}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
-		{5E12E304-8577-4B46-9B2F-08E5830668F8}.Debug|Any CPU.Build.0 = Debug|Any CPU
-		{5E12E304-8577-4B46-9B2F-08E5830668F8}.Release|Any CPU.ActiveCfg = Release|Any CPU
-		{5E12E304-8577-4B46-9B2F-08E5830668F8}.Release|Any CPU.Build.0 = Release|Any CPU
-		{BCEA1EF1-4448-4D45-BDF1-9BC9BEAF6B6F}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
-		{BCEA1EF1-4448-4D45-BDF1-9BC9BEAF6B6F}.Debug|Any CPU.Build.0 = Debug|Any CPU
-		{BCEA1EF1-4448-4D45-BDF1-9BC9BEAF6B6F}.Release|Any CPU.ActiveCfg = Release|Any CPU
-		{BCEA1EF1-4448-4D45-BDF1-9BC9BEAF6B6F}.Release|Any CPU.Build.0 = Release|Any CPU
-		{6F75789F-5019-4BF6-B3C1-953712F4ECA2}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
-		{6F75789F-5019-4BF6-B3C1-953712F4ECA2}.Debug|Any CPU.Build.0 = Debug|Any CPU
-		{6F75789F-5019-4BF6-B3C1-953712F4ECA2}.Release|Any CPU.ActiveCfg = Release|Any CPU
-		{6F75789F-5019-4BF6-B3C1-953712F4ECA2}.Release|Any CPU.Build.0 = Release|Any CPU
-		{490C22BD-7DB7-4C8D-B9DC-7E6E67A1ADD6}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
-		{490C22BD-7DB7-4C8D-B9DC-7E6E67A1ADD6}.Debug|Any CPU.Build.0 = Debug|Any CPU
-		{490C22BD-7DB7-4C8D-B9DC-7E6E67A1ADD6}.Release|Any CPU.ActiveCfg = Release|Any CPU
-		{490C22BD-7DB7-4C8D-B9DC-7E6E67A1ADD6}.Release|Any CPU.Build.0 = Release|Any CPU
-		{B1DEA279-FF11-4F82-AA92-EE5744D7FE70}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
-		{B1DEA279-FF11-4F82-AA92-EE5744D7FE70}.Debug|Any CPU.Build.0 = Debug|Any CPU
-		{B1DEA279-FF11-4F82-AA92-EE5744D7FE70}.Release|Any CPU.ActiveCfg = Release|Any CPU
-		{B1DEA279-FF11-4F82-AA92-EE5744D7FE70}.Release|Any CPU.Build.0 = Release|Any CPU
 		{7A3EFEF9-65E5-406D-AE95-41714AA7BBD3}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
 		{7A3EFEF9-65E5-406D-AE95-41714AA7BBD3}.Debug|Any CPU.Build.0 = Debug|Any CPU
 		{7A3EFEF9-65E5-406D-AE95-41714AA7BBD3}.Release|Any CPU.ActiveCfg = Release|Any CPU
