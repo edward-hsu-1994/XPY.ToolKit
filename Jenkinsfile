@@ -23,7 +23,7 @@ pipeline {
             }
             steps {
                 echo "Deploying.... GPR";
-                sh 'cd ./ngpkgs; ls | grep ".nupkg$" | { while read -r nupkg; do eval "dotnet nuget push $nupkg -k $GPRKey -s https://nuget.pkg.github.com/XuPeiYao/index.json;"; done }';
+                sh 'cd ./ngpkgs; ls | grep ".nupkg$" | { while read -r nupkg; do eval "nuget push $nupkg -Source GPR;"; done }';
             }
         }
     }
