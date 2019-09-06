@@ -22,6 +22,8 @@ Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "XPY.ToolKit.Base58", "XPY.T
 EndProject
 Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "XPY.ToolKit.Base58.Test", "XPY.ToolKit.Base58.Test\XPY.ToolKit.Base58.Test.csproj", "{B428D683-EA65-4A92-BA16-3F1C4156D4C4}"
 EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "XPY.ToolKit.AspNetCore.Mvc", "XPY.ToolKit.AspNetCore.Mvc\XPY.ToolKit.AspNetCore.Mvc.csproj", "{2C53DB7D-A7EE-4338-A177-497DA92092B7}"
+EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution
 		Debug|Any CPU = Debug|Any CPU
@@ -52,6 +54,10 @@ Global
 		{B428D683-EA65-4A92-BA16-3F1C4156D4C4}.Debug|Any CPU.Build.0 = Debug|Any CPU
 		{B428D683-EA65-4A92-BA16-3F1C4156D4C4}.Release|Any CPU.ActiveCfg = Release|Any CPU
 		{B428D683-EA65-4A92-BA16-3F1C4156D4C4}.Release|Any CPU.Build.0 = Release|Any CPU
+		{2C53DB7D-A7EE-4338-A177-497DA92092B7}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{2C53DB7D-A7EE-4338-A177-497DA92092B7}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{2C53DB7D-A7EE-4338-A177-497DA92092B7}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{2C53DB7D-A7EE-4338-A177-497DA92092B7}.Release|Any CPU.Build.0 = Release|Any CPU
 	EndGlobalSection
 	GlobalSection(SolutionProperties) = preSolution
 		HideSolutionNode = FALSE
