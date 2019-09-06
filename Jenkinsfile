@@ -10,11 +10,20 @@ pipeline {
         }
         stage('Deploy') {
             when {
-                 expression { return "$GIT_BRANCH".startsWith("refs/tags/") }
+                 expression { return "$GIT_BRANCH".startsWith("refs/tags/") && !"$GIT_BRANCH".toLowerCase().contains("beta") && !"$GIT_BRANCH".toLowerCase().contains("alpha") }
             }
             steps {
                 echo "Deploying.... $NuGetKey";
                 sh 'cd ./ngpkgs; ls | grep ".nupkg$" | { while read -r nupkg; do eval "dotnet nuget push $nupkg -k $NuGetKey -s https://www.nuget.org/;"; done }';
+            }
+        }
+        stage('Deploy GPR') {
+            when {
+                 expression { return "$GIT_BRANCH".startsWith("refs/tags/") }
+            }
+            steps {
+                echo "Deploying.... $NuGetKey";
+                sh 'cd ./ngpkgs; ls | grep ".nupkg$" | { while read -r nupkg; do eval "dotnet nuget push $nupkg -k $GPRKey -s https://nuget.pkg.github.com/XuPeiYao/index.json;"; done }';
             }
         }
     }
