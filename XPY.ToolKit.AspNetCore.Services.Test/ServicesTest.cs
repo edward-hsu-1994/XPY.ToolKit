@@ -7,11 +7,10 @@ using System.Collections.Specialized;
 using System.Net;
 using System.Net.Sockets;
 using System.Threading.Tasks;
-using XPY.ToolKit.AspNetCore.Mvc.Test.WebProject.Models;
 using Xunit;
 
-namespace XPY.ToolKit.AspNetCore.Mvc.Test {
-    public class FormJsonTest {
+namespace XPY.ToolKit.AspNetCore.Services.Test {
+    public class ServiceTest {
 
         static int FreeTcpPort() {
             TcpListener l = new TcpListener(IPAddress.Loopback, 0);
@@ -33,16 +32,8 @@ namespace XPY.ToolKit.AspNetCore.Mvc.Test {
 
             await webhost.StartAsync();
 
-            var response = await Http.Request($"http://localhost:{port}/api/Test?keyword=test")
-                       .SendForm(new NameValueCollection() {
-                           ["loginData"] = JsonConvert.SerializeObject(new TestModel() {
-                               Account = "test",
-                               Password = "testpassword"
-                           }),
-                           ["name"] = "XuPeiYao"
-                       })
-                       .ExpectHttpSuccess()
-                       .PostAsync();
+            var response = await Http.Request($"http://localhost:{port}/api/Test")
+                .ExpectHttpSuccess().GetAsync();
 
             Assert.Equal(HttpStatusCode.OK, response.StatusCode);
 
