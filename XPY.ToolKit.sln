@@ -26,9 +26,13 @@ Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "XPY.ToolKit.AspNetCore.Mvc"
 EndProject
 Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "XPY.ToolKit.AspNetCore.Mvc.Test", "XPY.ToolKit.AspNetCore.Mvc.Test\XPY.ToolKit.AspNetCore.Mvc.Test.csproj", "{E06371BB-958B-4F10-B323-253844CC5C3A}"
 EndProject
-Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "XPY.ToolKit.AspNetCore.Services", "XPY.ToolKit.AspNetCore.Services\XPY.ToolKit.AspNetCore.Services.csproj", "{628C6099-71A7-4A4E-A585-C9D9A295C612}"
+Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "XPY.ToolKit.AspNetCore.Services", "XPY.ToolKit.AspNetCore.Services\XPY.ToolKit.AspNetCore.Services.csproj", "{628C6099-71A7-4A4E-A585-C9D9A295C612}"
 EndProject
-Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "XPY.ToolKit.AspNetCore.Services.Test", "XPY.ToolKit.AspNetCore.Services.Test\XPY.ToolKit.AspNetCore.Services.Test.csproj", "{71EBCB7B-94C8-47BF-A312-5EE20D4BD02B}"
+Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "XPY.ToolKit.AspNetCore.Services.Test", "XPY.ToolKit.AspNetCore.Services.Test\XPY.ToolKit.AspNetCore.Services.Test.csproj", "{71EBCB7B-94C8-47BF-A312-5EE20D4BD02B}"
+EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "XPY.ToolKit.AspNetCore", "XPY.ToolKit.AspNetCore\XPY.ToolKit.AspNetCore.csproj", "{E28EC271-B920-4D96-80A6-FA67A7E386E8}"
+EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "XPY.ToolKit.AspNetCore.Test", "XPY.ToolKit.AspNetCore.Test\XPY.ToolKit.AspNetCore.Test.csproj", "{6CB7F3A1-FC08-40C9-82E3-65178BCE0EF6}"
 EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution
@@ -76,6 +80,14 @@ Global
 		{71EBCB7B-94C8-47BF-A312-5EE20D4BD02B}.Debug|Any CPU.Build.0 = Debug|Any CPU
 		{71EBCB7B-94C8-47BF-A312-5EE20D4BD02B}.Release|Any CPU.ActiveCfg = Release|Any CPU
 		{71EBCB7B-94C8-47BF-A312-5EE20D4BD02B}.Release|Any CPU.Build.0 = Release|Any CPU
+		{E28EC271-B920-4D96-80A6-FA67A7E386E8}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{E28EC271-B920-4D96-80A6-FA67A7E386E8}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{E28EC271-B920-4D96-80A6-FA67A7E386E8}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{E28EC271-B920-4D96-80A6-FA67A7E386E8}.Release|Any CPU.Build.0 = Release|Any CPU
+		{6CB7F3A1-FC08-40C9-82E3-65178BCE0EF6}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{6CB7F3A1-FC08-40C9-82E3-65178BCE0EF6}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{6CB7F3A1-FC08-40C9-82E3-65178BCE0EF6}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{6CB7F3A1-FC08-40C9-82E3-65178BCE0EF6}.Release|Any CPU.Build.0 = Release|Any CPU
 	EndGlobalSection
 	GlobalSection(SolutionProperties) = preSolution
 		HideSolutionNode = FALSE
