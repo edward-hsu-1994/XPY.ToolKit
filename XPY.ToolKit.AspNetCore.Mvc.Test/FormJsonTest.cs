@@ -33,7 +33,7 @@ namespace XPY.ToolKit.AspNetCore.Mvc.Test {
 
             await webhost.StartAsync();
 
-            await Http.Request($"http://localhost:{port}/api/Test?keyword=test")
+            var response = await Http.Request($"http://localhost:{port}/api/Test?keyword=test")
                        .SendForm(new NameValueCollection() {
                            ["loginData"] = JsonConvert.SerializeObject(new TestModel() {
                                Account = "test",
@@ -43,6 +43,8 @@ namespace XPY.ToolKit.AspNetCore.Mvc.Test {
                        })
                        .ExpectHttpSuccess()
                        .PostAsync();
+
+            Assert.Equal(HttpStatusCode.OK, response.StatusCode);
 
             await webhost.StopAsync();
         }
