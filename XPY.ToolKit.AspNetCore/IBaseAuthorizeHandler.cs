@@ -1,10 +1,12 @@
 ﻿using System.Threading.Tasks;
 
-namespace XPY.ToolKit.AspNetCore {
+namespace XPY.ToolKit.AspNetCore
+{
     /// <summary>
     /// 基礎驗證處理
     /// </summary>
-    public interface IBaseAuthorizeHandler {
+    public interface IBaseAuthorizeHandler
+    {
         /// <summary>
         /// 驗證方法
         /// </summary>

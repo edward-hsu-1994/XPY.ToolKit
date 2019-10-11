@@ -10,10 +10,13 @@ using System.Threading.Tasks;
 using XPY.ToolKit.AspNetCore.Mvc.Test.WebProject.Models;
 using Xunit;
 
-namespace XPY.ToolKit.AspNetCore.Mvc.Test {
-    public class FormJsonTest {
+namespace XPY.ToolKit.AspNetCore.Mvc.Test
+{
+    public class FormJsonTest
+    {
 
-        static int FreeTcpPort() {
+        static int FreeTcpPort()
+        {
             TcpListener l = new TcpListener(IPAddress.Loopback, 0);
             l.Start();
             int port = ((IPEndPoint)l.LocalEndpoint).Port;
@@ -22,10 +25,12 @@ namespace XPY.ToolKit.AspNetCore.Mvc.Test {
         }
 
         [Fact]
-        public async Task WebTest() {
+        public async Task WebTest()
+        {
             int port = 0;
             var webhost = WebHost.CreateDefaultBuilder()
-                .ConfigureKestrel(options => {
+                .ConfigureKestrel(options =>
+                {
                     options.ListenLocalhost(port = FreeTcpPort());
                 })
                 .UseStartup<Startup>()
@@ -34,8 +39,10 @@ namespace XPY.ToolKit.AspNetCore.Mvc.Test {
             await webhost.StartAsync();
 
             var response = await Http.Request($"http://localhost:{port}/api/Test?keyword=test")
-                       .SendForm(new NameValueCollection() {
-                           ["loginData"] = JsonConvert.SerializeObject(new TestModel() {
+                       .SendForm(new NameValueCollection()
+                       {
+                           ["loginData"] = JsonConvert.SerializeObject(new TestModel()
+                           {
                                Account = "test",
                                Password = "testpassword"
                            }),

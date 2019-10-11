@@ -3,8 +3,10 @@ using System.Collections;
 using System.Collections.Generic;
 using System.Text;
 
-namespace XPY.ToolKit.Linq.Processing {
-    internal class ProcessedEnumerator<TSource, TResult> : IEnumerator<TResult> {
+namespace XPY.ToolKit.Linq.Processing
+{
+    internal class ProcessedEnumerator<TSource, TResult> : IEnumerator<TResult>
+    {
         public IEnumerator<TSource> Source { get; internal set; }
 
         public Func<TSource, TResult> Process { get; internal set; }
@@ -13,20 +15,24 @@ namespace XPY.ToolKit.Linq.Processing {
 
         object IEnumerator.Current => this.Current;
 
-        public ProcessedEnumerator(IEnumerator<TSource> source, Func<TSource, TResult> process) {
+        public ProcessedEnumerator(IEnumerator<TSource> source, Func<TSource, TResult> process)
+        {
             Source = source;
             Process = process;
         }
 
-        public virtual void Dispose() {
+        public virtual void Dispose()
+        {
             Source.Dispose();
         }
 
-        public virtual bool MoveNext() {
+        public virtual bool MoveNext()
+        {
             return Source.MoveNext();
         }
 
-        public virtual void Reset() {
+        public virtual void Reset()
+        {
             Source.Reset();
         }
     }

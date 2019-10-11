@@ -4,11 +4,13 @@ using System.Linq;
 using System.Linq.Expressions;
 using System.Text;
 
-namespace XPY.ToolKit.Linq {
+namespace XPY.ToolKit.Linq
+{
     /// <summary>
     /// IQueryable擴充方法
     /// </summary>
-    public static partial class IQueryableExtension {
+    public static partial class IQueryableExtension
+    {
         /// <summary>
         /// 針對指定屬性取得符合指定值區間的成員
         /// </summary>
@@ -24,7 +26,8 @@ namespace XPY.ToolKit.Linq {
             Expression<Func<TSource, TProperty>> selector,
             Nullable<TProperty> min,
             Nullable<TProperty> max)
-            where TProperty : struct, IComparable {
+            where TProperty : struct, IComparable
+        {
             var selectPropertyName = (selector.Body as MemberExpression)?.Member?.Name;
 
             var isParam = selector.Body is ParameterExpression;
@@ -33,7 +36,8 @@ namespace XPY.ToolKit.Linq {
 
             var p = Expression.Parameter(typeof(TSource), "x");
 
-            if (min.HasValue) {
+            if (min.HasValue)
+            {
                 var minFilter = Expression.OrElse(
                     Expression.Equal(
                         Expression.Constant(min.Value, typeof(Nullable<TProperty>)),
@@ -54,7 +58,8 @@ namespace XPY.ToolKit.Linq {
                             .Where(Expression.Lambda<Func<TSource, bool>>(minFilter, p));
             }
 
-            if (max.HasValue) {
+            if (max.HasValue)
+            {
                 var maxFilter = Expression.OrElse(
                     Expression.Equal(
                         Expression.Constant(max, typeof(Nullable<TProperty>)),

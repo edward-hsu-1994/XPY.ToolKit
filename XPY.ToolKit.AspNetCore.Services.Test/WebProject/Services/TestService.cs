@@ -3,8 +3,10 @@ using System;
 using System.Collections.Generic;
 using System.Text;
 
-namespace XPY.ToolKit.AspNetCore.Services.Test.WebProject.Services {
+namespace XPY.ToolKit.AspNetCore.Services.Test.WebProject.Services
+{
     [ServiceInject(ServiceLifetime.Scoped)]
-    public class TestService {
+    public class TestService
+    {
     }
 }

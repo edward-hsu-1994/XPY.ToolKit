@@ -3,11 +3,13 @@ using System.Collections.Generic;
 using System.Linq;
 using System.Text;
 
-namespace XPY.ToolKit.Linq.Paging {
+namespace XPY.ToolKit.Linq.Paging
+{
     /// <summary>
     /// IEnumerable擴充方法
     /// </summary>
-    public static class IEnumerableExtension {
+    public static class IEnumerableExtension
+    {
         /// <summary>
         /// 將列舉項目轉換為分頁類型
         /// </summary>
@@ -19,7 +21,8 @@ namespace XPY.ToolKit.Linq.Paging {
         public static CommonPagingResult<TSource> AsPaging<TSource>(
             this IEnumerable<TSource> source,
             int offset = 0,
-            int limit = 10) {
+            int limit = 10)
+        {
             return source.AsQueryable().AsPaging(offset, limit);
         }
 
@@ -34,7 +37,8 @@ namespace XPY.ToolKit.Linq.Paging {
         public static CommonPagingResult<TSource> AsPaging<TSource>(
             this IQueryable<TSource> source,
             int offset = 0,
-            int limit = 10) {
+            int limit = 10)
+        {
             return new CommonPagingResult<TSource>(source, offset, limit);
         }
     }

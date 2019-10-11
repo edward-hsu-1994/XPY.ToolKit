@@ -5,11 +5,13 @@ using System.Linq;
 using System.Text;
 using System.Text.RegularExpressions;
 
-namespace XPY.ToolKit.Utilities.Common {
+namespace XPY.ToolKit.Utilities.Common
+{
     /// <summary>
     /// 常用String處理方法
     /// </summary>
-    public static class StringUtility {
+    public static class StringUtility
+    {
         /// <summary>
         /// 檢查字元是否在指定區間內
         /// </summary>
@@ -17,7 +19,8 @@ namespace XPY.ToolKit.Utilities.Common {
         /// <param name="min">最小值</param>
         /// <param name="max">最大值</param>
         /// <returns>是否在區間內</returns>
-        private static bool Between(this char @char, int min, int max) {
+        private static bool Between(this char @char, int min, int max)
+        {
             return @char >= min && @char <= max;
         }
 
@@ -50,9 +53,11 @@ namespace XPY.ToolKit.Utilities.Common {
         /// </summary>
         /// <param name="c">字元</param>
         /// <returns>語系名稱</returns>
-        private static string GetLangType(this char c) {
+        private static string GetLangType(this char c)
+        {
             string result = null;
-            foreach (var func in LangRanges) {
+            foreach (var func in LangRanges)
+            {
                 result = func(c);
                 if (result != null) break;
             }
@@ -65,13 +70,16 @@ namespace XPY.ToolKit.Utilities.Common {
         /// </summary>
         /// <param name="str">字串實例</param>
         /// <returns>自動加入空白後的字串</returns>
-        public static string Spacing(string str) {
+        public static string Spacing(string str)
+        {
             StringBuilder builder = new StringBuilder();
 
-            for (int i = 0; i < str.Length - 1; i++) {
+            for (int i = 0; i < str.Length - 1; i++)
+            {
                 builder.Append(str[i]);
                 if (str[i] == ' ' || str[i + 1] == ' ') continue;
-                if (str[i].GetLangType() != str[i + 1].GetLangType()) {
+                if (str[i].GetLangType() != str[i + 1].GetLangType())
+                {
                     builder.Append(' ');
                 }
             }
@@ -86,7 +94,8 @@ namespace XPY.ToolKit.Utilities.Common {
         /// <param name="str">字串實例</param>
         /// <param name="chunkSize">區塊大小</param>
         /// <returns>切割後的字串</returns>
-        public static string[] Split(string str, int chunkSize) {
+        public static string[] Split(string str, int chunkSize)
+        {
             return Enumerable.Range(0, (int)Math.Ceiling(((double)str.Length) / chunkSize))
                 .Select(x => SafeSubstring(str, x * chunkSize, chunkSize))
                 .ToArray();
@@ -99,7 +108,8 @@ namespace XPY.ToolKit.Utilities.Common {
         /// <param name="startIndex">起始索引</param>
         /// <param name="length">擷取子字串最長長度</param>
         /// <returns>子字串</returns>
-        public static string SafeSubstring(string str, int startIndex, int? length = null) {
+        public static string SafeSubstring(string str, int startIndex, int? length = null)
+        {
             if (!length.HasValue) length = str.Length;
             if (str.Length <= startIndex) return string.Empty;
             if (startIndex < 0) startIndex = 0;
@@ -115,7 +125,8 @@ namespace XPY.ToolKit.Utilities.Common {
         /// <param name="str">字串實例</param>
         /// <param name="pattern">正規表示式</param>
         /// <returns>是否符合表示式</returns>
-        public static bool IsMatch(string str, string pattern) {
+        public static bool IsMatch(string str, string pattern)
+        {
             var regex = new PcreRegex(pattern);
             return regex.IsMatch(str);
         }
@@ -127,7 +138,8 @@ namespace XPY.ToolKit.Utilities.Common {
         /// <param name="start">起始字串</param>
         /// <param name="end">結束字串</param>
         /// <returns>字串間的字串</returns>
-        public static string InnerString(string str, string start, string end) {
+        public static string InnerString(string str, string start, string end)
+        {
             string result = str.SafeSubstring(str.IndexOf(start) + start.Length);
             return result.SafeSubstring(0, result.IndexOf(end));
         }
@@ -138,13 +150,15 @@ namespace XPY.ToolKit.Utilities.Common {
         /// <param name="str">字串實例</param>
         /// <param name="sliceIndexes">切割索引</param>
         /// <returns>切割後的字串陣列</returns>
-        public static string[] Slice(string str, params int[] sliceIndexes) {
+        public static string[] Slice(string str, params int[] sliceIndexes)
+        {
             List<string> result = new List<string>();
 
             string temp = str;
 
             int preIndex = 0;
-            foreach (var index in sliceIndexes) {
+            foreach (var index in sliceIndexes)
+            {
                 result.Add(temp.SafeSubstring(0, index - preIndex));
                 temp = temp.SafeSubstring(index - preIndex);
 
@@ -164,7 +178,8 @@ namespace XPY.ToolKit.Utilities.Common {
         /// <param name="length">長度</param>
         /// <param name="newValue">取代字串</param>
         /// <returns>取代後的字串</returns>
-        public static string ReplaceRange(string str, int index, int length, string newValue) {
+        public static string ReplaceRange(string str, int index, int length, string newValue)
+        {
             string[] segments = Slice(str, index, index + length);
             segments[1] = newValue;
 

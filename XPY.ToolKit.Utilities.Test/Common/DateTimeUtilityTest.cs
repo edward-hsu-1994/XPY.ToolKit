@@ -3,10 +3,13 @@ using System.Collections.Generic;
 using System.Text;
 using Xunit;
 
-namespace XPY.ToolKit.Utilities.Common.Test {
-    public class DateTimeUtilityTest {
+namespace XPY.ToolKit.Utilities.Common.Test
+{
+    public class DateTimeUtilityTest
+    {
         [Fact(DisplayName = "取得現在的UnixTimestamp測試")]
-        public void GetNowUnixTimestampTest() {
+        public void GetNowUnixTimestampTest()
+        {
             DateTimeUtility.GetNowUnixTimestamp();
             DateTimeUtility.GetNowUnixTimestamp();
             DateTimeUtility.GetNowUnixTimestamp();
@@ -14,7 +17,8 @@ namespace XPY.ToolKit.Utilities.Common.Test {
         }
 
         [Fact(DisplayName = "取得現在的UnixTimestampMilliseconds測試")]
-        public void GetNowUnixTimestampMillisecondsTest() {
+        public void GetNowUnixTimestampMillisecondsTest()
+        {
             DateTimeUtility.GetNowUnixTimestampMilliseconds();
             DateTimeUtility.GetNowUnixTimestampMilliseconds();
             DateTimeUtility.GetNowUnixTimestampMilliseconds();
@@ -39,25 +43,29 @@ namespace XPY.ToolKit.Utilities.Common.Test {
 
         [Theory(DisplayName = "DateTime轉換為UnixTimestamp測試")]
         [MemberData(nameof(TestDataSets1))]
-        public void ToUnixTimestampTest(DateTime datetime, long unixTimestamp) {
+        public void ToUnixTimestampTest(DateTime datetime, long unixTimestamp)
+        {
             Assert.Equal(unixTimestamp, DateTimeUtility.ToUnixTimestamp(datetime));
         }
 
         [Theory(DisplayName = "DateTime轉換為UnixTimestampMilliseconds測試")]
         [MemberData(nameof(TestDataSets2))]
-        public void ToUnixTimestampMillisecondsTest(DateTime datetime, long unixTimestampMilliseconds) {
+        public void ToUnixTimestampMillisecondsTest(DateTime datetime, long unixTimestampMilliseconds)
+        {
             Assert.Equal(unixTimestampMilliseconds, DateTimeUtility.ToUnixTimestampMilliseconds(datetime));
         }
 
         [Theory(DisplayName = "UnixTimestamp轉換為DateTime測試")]
         [MemberData(nameof(TestDataSets1))]
-        public void FromUnixTimestampTest(DateTime datetime, long unixTimestamp) {
+        public void FromUnixTimestampTest(DateTime datetime, long unixTimestamp)
+        {
             Assert.Equal(datetime, DateTimeUtility.FromUnixTimestamp(unixTimestamp));
         }
 
         [Theory(DisplayName = "UnixTimestampMilliseconds轉換為DateTime測試")]
         [MemberData(nameof(TestDataSets2))]
-        public void FromUnixTimestampMillisecondsTest(DateTime datetime, long unixTimestampMilliseconds) {
+        public void FromUnixTimestampMillisecondsTest(DateTime datetime, long unixTimestampMilliseconds)
+        {
             Assert.Equal(datetime, DateTimeUtility.FromUnixTimestampMilliseconds(unixTimestampMilliseconds));
         }
     }

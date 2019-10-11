@@ -6,10 +6,13 @@ using Xunit;
 using XPY.ToolKit;
 using XPY.ToolKit.Linq.Paging;
 
-namespace XPY.ToolKit.Linq.Test {
-    public class PagingTest {
+namespace XPY.ToolKit.Linq.Test
+{
+    public class PagingTest
+    {
         [Fact(DisplayName = "分頁測試")]
-        public void PagingTestCase() {
+        public void PagingTestCase()
+        {
             Assert.Equal(Enumerable.Range(1, 10), Enumerable.Range(1, 100).AsPaging().Result);
 
             var paging = Enumerable.Range(1, 100).AsPaging();

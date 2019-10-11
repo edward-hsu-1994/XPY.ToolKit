@@ -2,11 +2,13 @@
 using System.Collections.Generic;
 using System.Text;
 
-namespace XPY.ToolKit.Utilities.Common {
+namespace XPY.ToolKit.Utilities.Common
+{
     /// <summary>
     /// 常用Byte大小單位
     /// </summary>
-    public static class BytesSize {
+    public static class BytesSize
+    {
         #region 二進制進位
         /// <summary>
         /// Kibibyte
