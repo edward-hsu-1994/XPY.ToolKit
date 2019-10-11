@@ -3,11 +3,13 @@ using System.Collections.Generic;
 using System.Text;
 using System.Threading;
 
-namespace XPY.ToolKit.Utilities.Common {
+namespace XPY.ToolKit.Utilities.Common
+{
     /// <summary>
     /// 讀寫鎖區塊模式
     /// </summary>
-    public enum ReaderWriterLockMode {
+    public enum ReaderWriterLockMode
+    {
         Write,
         Read,
         UpgradeableRead
@@ -16,13 +18,16 @@ namespace XPY.ToolKit.Utilities.Common {
     /// <summary>
     /// 讀寫鎖區塊
     /// </summary>
-    public class ReaderWriterLockScope : IDisposable {
+    public class ReaderWriterLockScope : IDisposable
+    {
         ReaderWriterLockMode mode;
         ReaderWriterLockSlim locker;
-        public ReaderWriterLockScope(ReaderWriterLockSlim locker, ReaderWriterLockMode mode) {
+        public ReaderWriterLockScope(ReaderWriterLockSlim locker, ReaderWriterLockMode mode)
+        {
             this.locker = locker;
             this.mode = mode;
-            switch (mode) {
+            switch (mode)
+            {
                 case ReaderWriterLockMode.Read:
                     locker.EnterReadLock();
                     break;
@@ -35,8 +40,10 @@ namespace XPY.ToolKit.Utilities.Common {
             }
         }
 
-        public void Dispose() {
-            switch (mode) {
+        public void Dispose()
+        {
+            switch (mode)
+            {
                 case ReaderWriterLockMode.Read:
                     locker.ExitReadLock();
                     break;

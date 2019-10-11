@@ -3,11 +3,13 @@ using System.Collections.Generic;
 using System.Linq;
 using System.Text;
 
-namespace XPY.ToolKit.Linq.Processing {
+namespace XPY.ToolKit.Linq.Processing
+{
     /// <summary>
     /// IQueryable擴充方法
     /// </summary>
-    public static class IQueryableExtension {
+    public static class IQueryableExtension
+    {
         /// <summary>
         /// 查詢結果處理或轉換
         /// </summary>
@@ -18,8 +20,10 @@ namespace XPY.ToolKit.Linq.Processing {
         /// <returns>轉換結果集合</returns>
         public static IEnumerable<TResult> Process<TSource, TResult>(
             this IQueryable<TSource> queryEnum,
-            Func<TSource, TResult> process) {
-            return new ProcessedQueryable<TSource, TResult>() {
+            Func<TSource, TResult> process)
+        {
+            return new ProcessedQueryable<TSource, TResult>()
+            {
                 Source = queryEnum,
                 Process = process
             };

@@ -2,12 +2,14 @@
 using System.Collections.Generic;
 using System.Text;
 
-namespace XPY.ToolKit.Linq.Paging {
+namespace XPY.ToolKit.Linq.Paging
+{
     /// <summary>
     /// 分頁結果
     /// </summary>
     /// <typeparam name="TSource">列舉成員類型</typeparam>
-    public interface IPagingResult<TSource> {
+    public interface IPagingResult<TSource>
+    {
         /// <summary>
         /// 起始索引
         /// </summary>

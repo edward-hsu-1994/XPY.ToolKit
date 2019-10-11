@@ -5,17 +5,22 @@ using System.Threading;
 using System.Threading.Tasks;
 using Xunit;
 
-namespace XPY.ToolKit.Utilities.Common.Test {
+namespace XPY.ToolKit.Utilities.Common.Test
+{
     /// <summary>
     /// 讀寫鎖區塊
     /// </summary>
-    public class ReaderWriterLockScopeTest {
+    public class ReaderWriterLockScopeTest
+    {
         [Fact(DisplayName = "讀寫鎖區塊測試1")]
-        public void ScopeTest1() {
+        public void ScopeTest1()
+        {
             int result = 0;
             ReaderWriterLockSlim locker = new ReaderWriterLockSlim();
-            Parallel.For(0, 100, (_) => {
-                using (var scope = new ReaderWriterLockScope(locker, ReaderWriterLockMode.Write)) {
+            Parallel.For(0, 100, (_) =>
+            {
+                using (var scope = new ReaderWriterLockScope(locker, ReaderWriterLockMode.Write))
+                {
                     result++;
                 }
             });
@@ -23,13 +28,17 @@ namespace XPY.ToolKit.Utilities.Common.Test {
         }
 
         [Fact(DisplayName = "讀寫鎖區塊測試2")]
-        public void ScopeTest2() {
+        public void ScopeTest2()
+        {
             int result = 0;
             ReaderWriterLockSlim locker = new ReaderWriterLockSlim(LockRecursionPolicy.SupportsRecursion);
-            Parallel.For(0, 100, (_) => {
-                using (var scope1 = new ReaderWriterLockScope(locker, ReaderWriterLockMode.Write)) {
+            Parallel.For(0, 100, (_) =>
+            {
+                using (var scope1 = new ReaderWriterLockScope(locker, ReaderWriterLockMode.Write))
+                {
                     result++;
-                    using (var scope2 = new ReaderWriterLockScope(locker, ReaderWriterLockMode.Write)) {
+                    using (var scope2 = new ReaderWriterLockScope(locker, ReaderWriterLockMode.Write))
+                    {
                         result++;
                     }
                 }
@@ -38,11 +47,14 @@ namespace XPY.ToolKit.Utilities.Common.Test {
         }
 
         [Fact(DisplayName = "讀寫鎖區塊測試3")]
-        public void ScopeTest3() {
+        public void ScopeTest3()
+        {
             int result = 0;
             ReaderWriterLockSlim locker = new ReaderWriterLockSlim(LockRecursionPolicy.SupportsRecursion);
-            Parallel.For(0, 100, (_) => {
-                using (var scope1 = new ReaderWriterLockScope(locker, ReaderWriterLockMode.Read)) {
+            Parallel.For(0, 100, (_) =>
+            {
+                using (var scope1 = new ReaderWriterLockScope(locker, ReaderWriterLockMode.Read))
+                {
                     result = _;
                 }
             });

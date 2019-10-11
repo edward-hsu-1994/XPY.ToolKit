@@ -4,8 +4,10 @@ using System.Linq;
 using System.Text;
 using Xunit;
 
-namespace XPY.ToolKit.Utilities.Common.Test {
-    public class ArrayExtensionTest {
+namespace XPY.ToolKit.Utilities.Common.Test
+{
+    public class ArrayExtensionTest
+    {
         public static IEnumerable<object[]> GetDefaultData {
             get {
                 return new object[][]{
@@ -18,7 +20,8 @@ namespace XPY.ToolKit.Utilities.Common.Test {
 
         [Theory(DisplayName = "實例包裝為陣列")]
         [MemberData(nameof(GetDefaultData))]
-        public void BoxingToArrayTest(object elementInstance, object[] array) {
+        public void BoxingToArrayTest(object elementInstance, object[] array)
+        {
             Assert.Equal(elementInstance.BoxingToArray(), array);
         }
 
@@ -34,7 +37,8 @@ namespace XPY.ToolKit.Utilities.Common.Test {
 
         [Theory(DisplayName = "取得陣列的長度")]
         [MemberData(nameof(GetLengthsData))]
-        public void GetLengthsTest(Array array, int[] indexes) {
+        public void GetLengthsTest(Array array, int[] indexes)
+        {
             Assert.Equal(array.GetLengths(), indexes);
         }
 
@@ -59,7 +63,8 @@ namespace XPY.ToolKit.Utilities.Common.Test {
 
         [Theory(DisplayName = "取得陣列中所有維度的長度")]
         [MemberData(nameof(GetAllIndexesData))]
-        public void GetAllIndexesTest(Array array, int[][] indexes) {
+        public void GetAllIndexesTest(Array array, int[][] indexes)
+        {
             Assert.Equal(array.GetAllIndexes(), indexes);
         }
 
@@ -77,7 +82,8 @@ namespace XPY.ToolKit.Utilities.Common.Test {
 
         [Theory(DisplayName = "填滿陣列")]
         [MemberData(nameof(FullData))]
-        public void FullTest(Array array, Array result, object value) {
+        public void FullTest(Array array, Array result, object value)
+        {
             array.Full(value);
             Assert.Equal(array, result);
         }

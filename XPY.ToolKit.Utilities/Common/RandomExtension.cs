@@ -3,11 +3,13 @@ using System.Collections.Generic;
 using System.Reflection;
 using System.Text;
 
-namespace XPY.ToolKit.Utilities.Common {
+namespace XPY.ToolKit.Utilities.Common
+{
     /// <summary>
     /// Random擴充方法
     /// </summary>
-    public static class RandomExtension {
+    public static class RandomExtension
+    {
         /// <summary>
         /// 隨機取指定數值內的<see cref="double"/>值
         /// </summary>
@@ -15,7 +17,8 @@ namespace XPY.ToolKit.Utilities.Common {
         /// <param name="min">下限</param>
         /// <param name="max">獨佔上限</param>
         /// <returns>亂數結果</returns>
-        public static double NextDouble(this Random rand, double min, double max) {
+        public static double NextDouble(this Random rand, double min, double max)
+        {
             return rand.NextDouble(max - min) + min;
         }
 
@@ -25,7 +28,8 @@ namespace XPY.ToolKit.Utilities.Common {
         /// <param name="rand"><see cref="Random"/>實例</param>
         /// <param name="max">獨佔上限</param>
         /// <returns>亂數結果</returns>
-        public static double NextDouble(this Random rand, double max) {
+        public static double NextDouble(this Random rand, double max)
+        {
             return rand.NextDouble() * max;
         }
 
@@ -34,7 +38,8 @@ namespace XPY.ToolKit.Utilities.Common {
         /// </summary>
         /// <param name="rand"><see cref="Random"/>實例</param>
         /// <returns>亂數結果</returns>
-        public static bool NextBool(this Random rand) {
+        public static bool NextBool(this Random rand)
+        {
             return rand.NextDouble() > 0.5;
         }
 
@@ -44,7 +49,8 @@ namespace XPY.ToolKit.Utilities.Common {
         /// <param name="rand"><see cref="Random"/>實例</param>
         /// <param name="type">目標型別</param>
         /// <returns>亂數結果</returns>
-        public static object NextEnum(this Random rand, Type type) {
+        public static object NextEnum(this Random rand, Type type)
+        {
             Array values = type.GetTypeInfo().GetEnumValues();
             int index = rand.Next(values.Length);
             return values.GetValue(index);
@@ -55,7 +61,8 @@ namespace XPY.ToolKit.Utilities.Common {
         /// </summary>
         /// <param name="rand"><see cref="Random"/>實例</param>
         /// <returns>亂數結果</returns>
-        public static T NextEnum<T>(this Random rand) {
+        public static T NextEnum<T>(this Random rand)
+        {
             return (T)NextEnum(rand, typeof(T));
         }
 
@@ -65,7 +72,8 @@ namespace XPY.ToolKit.Utilities.Common {
         /// <param name="rand"><see cref="Random"/>實例</param>
         /// <param name="data">目標字串</param>
         /// <returns>亂數結果</returns>
-        public static T NextArrayElement<T>(this Random rand, params T[] data) {
+        public static T NextArrayElement<T>(this Random rand, params T[] data)
+        {
             int index = rand.Next(data.Length);
             return data[index];
         }

@@ -4,8 +4,10 @@ using System.Linq;
 using System.Linq.Expressions;
 using System.Text;
 
-namespace XPY.ToolKit.Linq {
-    public static partial class IQueryableExtension {
+namespace XPY.ToolKit.Linq
+{
+    public static partial class IQueryableExtension
+    {
         /// <summary>
         /// 針對指定屬性取得值相等的成員
         /// </summary>
@@ -19,7 +21,8 @@ namespace XPY.ToolKit.Linq {
             this IQueryable<TSource> source,
             Expression<Func<TSource, TProperty>> selector,
             Nullable<TProperty> value)
-            where TProperty : struct {
+            where TProperty : struct
+        {
             var selectPropertyName = (selector.Body as MemberExpression)?.Member?.Name;
 
             var isParam = selector.Body is ParameterExpression;
@@ -28,7 +31,8 @@ namespace XPY.ToolKit.Linq {
 
             var p = Expression.Parameter(typeof(TSource), "x");
 
-            if (value.HasValue) {
+            if (value.HasValue)
+            {
                 return result.Where(
                         Expression.Lambda<Func<TSource, bool>>(
                             Expression.OrElse(
@@ -46,7 +50,9 @@ namespace XPY.ToolKit.Linq {
                             ),
                          p)
                       );
-            } else {
+            }
+            else
+            {
                 return result;
             }
         }

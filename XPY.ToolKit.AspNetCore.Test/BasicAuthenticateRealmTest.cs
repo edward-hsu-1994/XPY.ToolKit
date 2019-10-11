@@ -9,10 +9,12 @@ using System.Text;
 using System.Threading.Tasks;
 using Xunit;
 
-namespace XPY.ToolKit.AspNetCore.Test {
-    public class BasicAuthenticateRealmTest {
-
-        static int FreeTcpPort() {
+namespace XPY.ToolKit.AspNetCore.Test
+{
+    public class BasicAuthenticateRealmTest
+    {
+        static int FreeTcpPort()
+        {
             TcpListener l = new TcpListener(IPAddress.Loopback, 0);
             l.Start();
             int port = ((IPEndPoint)l.LocalEndpoint).Port;
@@ -21,10 +23,12 @@ namespace XPY.ToolKit.AspNetCore.Test {
         }
 
         [Fact]
-        public async Task WebTest() {
+        public async Task WebTest()
+        {
             int port = 0;
             var webhost = WebHost.CreateDefaultBuilder()
-                .ConfigureKestrel(options => {
+                .ConfigureKestrel(options =>
+                {
                     options.ListenLocalhost(port = FreeTcpPort());
                 })
                 .UseStartup<Startup>()

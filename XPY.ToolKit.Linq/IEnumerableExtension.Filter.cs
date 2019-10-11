@@ -3,8 +3,10 @@ using System.Collections.Generic;
 using System.Linq;
 using System.Text;
 
-namespace XPY.ToolKit.Linq {
-    public static partial class IEnumerableExtension {
+namespace XPY.ToolKit.Linq
+{
+    public static partial class IEnumerableExtension
+    {
         /// <summary>
         /// 針對指定屬性取得值相等的成員
         /// </summary>
@@ -17,12 +19,14 @@ namespace XPY.ToolKit.Linq {
         public static IEnumerable<TSource> Filter<TSource, TProperty>(
             this IEnumerable<TSource> source,
             Func<TSource, TProperty> selector,
-            Nullable<TProperty> value) where TProperty : struct {
+            Nullable<TProperty> value) where TProperty : struct
+        {
             var result = source;
 
             if (value == null) return result;
 
-            return result.Where(x => {
+            return result.Where(x =>
+            {
                 var v = selector(x);
 
                 return value.Equals(v);

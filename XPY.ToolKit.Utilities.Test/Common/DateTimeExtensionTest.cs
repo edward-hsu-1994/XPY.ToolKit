@@ -3,8 +3,10 @@ using System.Collections.Generic;
 using System.Text;
 using Xunit;
 
-namespace XPY.ToolKit.Utilities.Common.Test {
-    public class DateTimeExtensionTest {
+namespace XPY.ToolKit.Utilities.Common.Test
+{
+    public class DateTimeExtensionTest
+    {
         public static IEnumerable<object[]> TestDataSets1 =>
             new List<object[]>() {
                 new object[]{ new DateTime(2000,1,5,5,1,2,DateTimeKind.Utc), 947048462 },
@@ -23,25 +25,29 @@ namespace XPY.ToolKit.Utilities.Common.Test {
 
         [Theory(DisplayName = "DateTime轉換為UnixTimestamp測試")]
         [MemberData(nameof(TestDataSets1))]
-        public void ToUnixTimestampTest(DateTime datetime, long unixTimestamp) {
+        public void ToUnixTimestampTest(DateTime datetime, long unixTimestamp)
+        {
             Assert.Equal(unixTimestamp, datetime.ToUnixTimestamp());
         }
 
         [Theory(DisplayName = "DateTime轉換為UnixTimestampMilliseconds測試")]
         [MemberData(nameof(TestDataSets2))]
-        public void ToUnixTimestampMillisecondsTest(DateTime datetime, long unixTimestampMilliseconds) {
+        public void ToUnixTimestampMillisecondsTest(DateTime datetime, long unixTimestampMilliseconds)
+        {
             Assert.Equal(unixTimestampMilliseconds, datetime.ToUnixTimestampMilliseconds());
         }
 
         [Theory(DisplayName = "UnixTimestamp轉換為DateTime測試")]
         [MemberData(nameof(TestDataSets1))]
-        public void FromUnixTimestampTest(DateTime datetime, long unixTimestamp) {
+        public void FromUnixTimestampTest(DateTime datetime, long unixTimestamp)
+        {
             Assert.Equal(datetime, unixTimestamp.ToDateTimeFromTimestamp());
         }
 
         [Theory(DisplayName = "UnixTimestampMilliseconds轉換為DateTime測試")]
         [MemberData(nameof(TestDataSets2))]
-        public void FromUnixTimestampMillisecondsTest(DateTime datetime, long unixTimestampMilliseconds) {
+        public void FromUnixTimestampMillisecondsTest(DateTime datetime, long unixTimestampMilliseconds)
+        {
             Assert.Equal(datetime, unixTimestampMilliseconds.ToDateTimeFromTimestampMilliseconds());
         }
     }

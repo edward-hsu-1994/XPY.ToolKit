@@ -4,11 +4,13 @@ using System;
 using System.Collections.Generic;
 using System.Text;
 
-namespace XPY.ToolKit.AspNetCore {
+namespace XPY.ToolKit.AspNetCore
+{
     /// <summary>
     /// 基礎驗證擴充方法
     /// </summary>
-    public static class BasicAuthenticateRealmExtension {
+    public static class BasicAuthenticateRealmExtension
+    {
         /// <summary>
         /// 使用範圍HTTP基本驗證
         /// </summary>
@@ -20,7 +22,8 @@ namespace XPY.ToolKit.AspNetCore {
         public static IApplicationBuilder UseBasicAuthenticateRealm<TBaseAuthorizeHandler>(
             this IApplicationBuilder app,
             BasicAuthenticateRealmOption options)
-            where TBaseAuthorizeHandler : IBaseAuthorizeHandler {
+            where TBaseAuthorizeHandler : IBaseAuthorizeHandler
+        {
             return app.UseMiddleware<BasicAuthenticateRealmMiddleware<TBaseAuthorizeHandler>>(
                 options
             );

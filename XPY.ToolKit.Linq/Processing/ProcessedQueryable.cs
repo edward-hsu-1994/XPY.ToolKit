@@ -5,8 +5,10 @@ using System.Linq;
 using System.Linq.Expressions;
 using System.Text;
 
-namespace XPY.ToolKit.Linq.Processing {
-    internal class ProcessedQueryable<TSource, TResult> : IQueryable<TResult> {
+namespace XPY.ToolKit.Linq.Processing
+{
+    internal class ProcessedQueryable<TSource, TResult> : IQueryable<TResult>
+    {
         public IQueryable<TSource> Source { get; internal set; }
         public Func<TSource, TResult> Process { get; internal set; }
 
@@ -16,14 +18,16 @@ namespace XPY.ToolKit.Linq.Processing {
 
         public IQueryProvider Provider => Source.Provider;
 
-        public IEnumerator<TResult> GetEnumerator() {
+        public IEnumerator<TResult> GetEnumerator()
+        {
             return new ProcessedEnumerator<TSource, TResult>(
                 Source.GetEnumerator(),
                 Process
             );
         }
 
-        IEnumerator IEnumerable.GetEnumerator() {
+        IEnumerator IEnumerable.GetEnumerator()
+        {
             return this.GetEnumerator();
         }
     }

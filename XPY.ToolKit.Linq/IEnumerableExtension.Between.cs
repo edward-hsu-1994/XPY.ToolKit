@@ -3,8 +3,10 @@ using System.Collections.Generic;
 using System.Text;
 using System.Linq;
 
-namespace XPY.ToolKit.Linq {
-    public static partial class IEnumerableExtension {
+namespace XPY.ToolKit.Linq
+{
+    public static partial class IEnumerableExtension
+    {
         /// <summary>
         /// 針對指定屬性取得符合指定值區間的成員
         /// </summary>
@@ -20,18 +22,23 @@ namespace XPY.ToolKit.Linq {
             Func<TSource, TProperty> selector,
             Nullable<TProperty> min,
             Nullable<TProperty> max)
-            where TProperty : struct, IComparable {
+            where TProperty : struct, IComparable
+        {
             var result = source;
 
-            if (min.HasValue) {
-                result = result.Where(x => {
+            if (min.HasValue)
+            {
+                result = result.Where(x =>
+                {
                     var temp = selector(x) as IComparable;
                     return temp.CompareTo(min.Value) >= 0;
                 });
             }
 
-            if (max.HasValue) {
-                result = result.Where(x => {
+            if (max.HasValue)
+            {
+                result = result.Where(x =>
+                {
                     var temp = selector(x) as IComparable;
                     return temp.CompareTo(max.Value) <= 0;
                 });
