@@ -1,0 +1,6 @@
+pipeline:
+  build:
+    image: mcr.microsoft.com/dotnet/core/sdk:3.0
+    commands:
+      - dotnet restore
+      - dotnet publish -c Release -r linux-x64 -o out
