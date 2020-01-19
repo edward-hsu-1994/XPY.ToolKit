@@ -13,8 +13,8 @@ namespace XPY.ToolKit.Linq.Paging
     {
         /// <summary>
         /// 分頁資料來源
-        /// </summary>
-        public virtual IQueryable<TSource> Source { get; private set; }
+        /// </summary> 
+        private protected virtual IQueryable<TSource> Source { get; set; }
 
         /// <summary>
         /// 分頁結果
