@@ -14,12 +14,12 @@ namespace XPY.ToolKit.Linq.Paging
         /// <summary>
         /// 分頁資料來源
         /// </summary> 
-        private protected virtual IQueryable<TSource> Source { get; set; }
+        private protected virtual IEnumerable<TSource> Source { get; set; }
 
         /// <summary>
         /// 分頁結果
         /// </summary>
-        public virtual IQueryable<TSource> Result {
+        public virtual IEnumerable<TSource> Result {
             get {
                 return Source.Skip(Offset).Take(Limit);
             }
@@ -83,7 +83,7 @@ namespace XPY.ToolKit.Linq.Paging
         /// <param name="source">分頁資料來源</param>
         /// <param name="offset">起始索引</param>
         /// <param name="limit">取得筆數，如果為-1則表示取得所有資訊不分頁</param>
-        public CommonPagingResult(IQueryable<TSource> source, int offset, int limit)
+        public CommonPagingResult(IEnumerable<TSource> source, int offset, int limit)
         {
             this.Source = source;
             this.Offset = offset;

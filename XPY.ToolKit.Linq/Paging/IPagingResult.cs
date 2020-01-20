@@ -11,6 +11,11 @@ namespace XPY.ToolKit.Linq.Paging
     public interface IPagingResult<TSource>
     {
         /// <summary>
+        /// 結果
+        /// </summary>
+        IEnumerable<TSource> Result { get; }
+
+        /// <summary>
         /// 起始索引
         /// </summary>
         int Offset { get; }
