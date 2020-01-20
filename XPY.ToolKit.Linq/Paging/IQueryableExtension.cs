@@ -23,7 +23,7 @@ namespace XPY.ToolKit.Linq.Paging
             int offset = 0,
             int limit = 10)
         {
-            return source.AsQueryable().AsPaging(offset, limit);
+            return new CommonPagingResult<TSource>(source, offset, limit);
         }
     }
 }
