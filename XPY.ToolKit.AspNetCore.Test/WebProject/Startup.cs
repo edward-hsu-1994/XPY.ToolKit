@@ -6,6 +6,7 @@ using Microsoft.AspNetCore.Builder;
 using Microsoft.AspNetCore.Hosting;
 using Microsoft.AspNetCore.Http;
 using Microsoft.Extensions.DependencyInjection;
+using XPY.ToolKit.AspNetCore.DependencyInjection;
 using XPY.ToolKit.AspNetCore.Test.WebProject;
 
 namespace XPY.ToolKit.AspNetCore.Test
@@ -30,6 +31,26 @@ namespace XPY.ToolKit.AspNetCore.Test
             });
 
             app.UseMvc();
+        }
+    }
+
+    [Inject(ServiceLifetime.Scoped)]
+    public class A
+    {
+        public Cycle<B> B { get; private set; }
+        public A(Cycle<B> b)
+        {
+            B = b;
+        }
+    }
+
+    [Inject(ServiceLifetime.Scoped)]
+    public class B
+    {
+        public Cycle<A> A { get; private set; }
+        public B(Cycle<A> a)
+        {
+            A = a;
         }
     }
 }

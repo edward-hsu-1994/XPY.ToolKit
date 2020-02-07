@@ -27,8 +27,7 @@ namespace XPY.ToolKit.AspNetCore.Test
         {
             int port = 0;
             var webhost = WebHost.CreateDefaultBuilder()
-                .ConfigureKestrel(options =>
-                {
+                .ConfigureKestrel(options => {
                     options.ListenLocalhost(port = FreeTcpPort());
                 })
                 .UseStartup<Startup>()
@@ -56,6 +55,12 @@ namespace XPY.ToolKit.AspNetCore.Test
                 .GetAsync();
 
             Assert.Equal(HttpStatusCode.Unauthorized, response.StatusCode);
+
+            response = await Http.Request($"http://localhost:{port}/api/Test/cycle")
+                .ExpectHttpSuccess()
+                .GetAsync();
+
+            Assert.NotEqual(HttpStatusCode.InternalServerError, response.StatusCode);
 
             await webhost.StopAsync();
         }
