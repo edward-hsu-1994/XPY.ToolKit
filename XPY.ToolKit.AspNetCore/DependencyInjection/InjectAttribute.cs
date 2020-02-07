@@ -3,14 +3,14 @@ using System;
 using System.Collections.Generic;
 using System.Text;
 
-namespace XPY.ToolKit.AspNetCore.Services
+namespace XPY.ToolKit.AspNetCore.DependencyInjection
 {
-    [AttributeUsage(AttributeTargets.Class, AllowMultiple = true, Inherited = false)]
-    public class ServiceInjectAttribute : Attribute
+    [AttributeUsage(AttributeTargets.Class, AllowMultiple = false, Inherited = false)]
+    public class InjectAttribute : Attribute
     {
         public ServiceLifetime LifeTime { get; private set; }
         public Type ServiceType { get; set; }
-        public ServiceInjectAttribute(ServiceLifetime lifetime)
+        public InjectAttribute(ServiceLifetime lifetime)
         {
             LifeTime = lifetime;
         }
